@@ -1,11 +1,11 @@
-.. UCR EE144 documentation master file, created by
+.. UCR EE106 documentation master file, created by
    sphinx-quickstart on Fri Sep 27 13:22:16 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to UCR EE144/ME144/EE283A
+Welcome to UCR EE106
 ==================================
-Fundations of Robotics!
+Programming Practical Robots!
 ==========================
 
 .. toctree::

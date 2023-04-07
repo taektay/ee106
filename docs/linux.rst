@@ -14,13 +14,13 @@ Tab Key Auto-completion
 
   .. code-block:: bash
 
-    roscd ee144
+    roscd ee106
 
 - You will see that it becomes
 
   .. code-block:: bash
 
-    roscd ee144f22
+    roscd ee106s23
 
 - This means that Linux can identify an **unique** name of the directory
   by just seeing the first five characters. 
@@ -59,7 +59,7 @@ Terminal and Shell
   and the ``grep`` command is running after ``bash``.
 
 - In general, there are many types of terminals and shells available in Linux.
-  Specifically, in Ubuntu 16.04, it has ``gnome-terminal`` as the default terminal 
+  Specifically, in Ubuntu 20.04, it has ``gnome-terminal`` as the default terminal 
   and ``bash`` as the default shell. 
   
 - Roughly speaking, you can think of terminal as the frontend GUI and shell as the actual program 
@@ -80,7 +80,7 @@ Terminal and File Manager
 
 Similarly, there are `many types of file managers 
 <https://www.ubuntupit.com/linux-file-manager-reviewed-for-linux-users/>`_ available in Linux. 
-Ubuntu 16 has ``nautilus`` as the default file manager. 
+Ubuntu 20 has ``nautilus`` as the default file manager. 
 
 We can go back and forth between terminal and file manager at any working directory.
 
@@ -101,11 +101,11 @@ We can go back and forth between terminal and file manager at any working direct
   and ``.`` is the argument passing into ``nautilus`` that represents the current directory.
 
 - You can also open a file manager at any other working directory. 
-  For example, go to the ``ee144f20`` package and open a file manager from this directory.
+  For example, go to the ``ee106s23`` package and open a file manager from this directory.
 
   .. code-block:: bash
 
-    roscd ee144f22
+    roscd ee106s23
     nautilus .
 
 - On the other hand, at any level of file manager, you can open a new terminal by just 
@@ -119,7 +119,7 @@ We can go back and forth between terminal and file manager at any working direct
 
   .. code-block:: bash
 
-    roscd ee144f22
+    roscd ee106s23
     nautilus . &
 
 - where ``&`` can combine two commands. In this case, no new command is given, 
@@ -130,7 +130,7 @@ We can go back and forth between terminal and file manager at any working direct
 
   .. code-block:: bash
 
-    roscd ee144f22/launch
+    roscd ee106s23/launch
     gedit gazebo.launch &
 
 
