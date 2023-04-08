@@ -54,7 +54,7 @@ Communications
 
 Please consider reaching out to the TA in the following preferred order, regarding technical issues.
 
-1. **Office Hour**. Please wisely use the time at the lab, during which
+1. **Office Hour**. Please wisely use the time at the lab, during which the
    TA can give detailed explanations.
 
 2. **Canvas**. If you have any questions/concerns offline, please ask on Canvas (Piazza section) first.
