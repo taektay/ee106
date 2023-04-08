@@ -146,19 +146,19 @@ Main steps are
     echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
     source ~/.bashrc
 
-- Install more dependencies
+- Install more dependencies and install rosdep
 
   .. code-block:: bash
 
-    sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+    sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 
 - Initialize rosdep
 
   .. code-block:: bash
     
-    sudo apt install python-rosdep # if you haven't already installed rosdep
+    sudo apt install python3-rosdep # if you haven't already installed rosdep
     sudo rosdep init
-    rosdep update --include-eol-distros
+    rosdep update
 
 Learn from ROS Tutorials
 ---------------------------
@@ -170,3 +170,14 @@ on `ROS wiki <http://wiki.ros.org/ROS/Tutorials>`_ and
 .. _the tutorial for ROS: https://ucr-robotics.readthedocs.io/en/latest/intro_ros.html
 
 Have fun!
+
+.. Install Gazebo
+.. -----------
+
+.. Gazebo simulator is the final installation, as it will be used in future labs. To install it,
+
+.. sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
+
+.. and 
+
+.. sudo apt-get install ros-noetic-jackal-gazebo
