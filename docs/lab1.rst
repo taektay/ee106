@@ -19,7 +19,9 @@ From now on, we assume that you have already installed Ubuntu 20.04 and ROS Noet
 .. code-block:: bash
 
     mkdir -p ~/catkin_ws/src
-    cd ~/catkin_ws
+    cd ~/catkin_ws/src 
+    cd catkin_init_workspace
+    cd ../
     catkin_make
     echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
     source ~/catkin_ws/devel/setup.bash
