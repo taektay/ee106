@@ -16,7 +16,7 @@ From now on, we assume that you have already installed Ubuntu 20.04 and ROS Noet
 
 - Please open a new terminal, and create a new ROS workspace by the following commands (run them line by line).
 
-  .. code-block:: bash
+.. code-block:: bash
 
     mkdir -p ~/catkin_ws/src
     cd ~/catkin_ws
@@ -38,7 +38,7 @@ From now on, we assume that you have already installed Ubuntu 20.04 and ROS Noet
 
 - Next let's create a new ROS package.
 
-  .. code-block:: bash
+.. code-block:: bash
       
     cd ~/catkin_ws/src
     catkin_create_pkg ee106s23 std_msgs rospy
@@ -50,7 +50,7 @@ From now on, we assume that you have already installed Ubuntu 20.04 and ROS Noet
 - After creating a new package, we can go back to our workspace and build this package.
   This is to tell ROS that "Hey, we have a new package here. Please register it into the system."
 
-  .. code-block:: bash
+.. code-block:: bash
       
     cd ~/catkin_ws
     catkin_make
@@ -59,7 +59,7 @@ From now on, we assume that you have already installed Ubuntu 20.04 and ROS Noet
   Try navigating to different directories first, and then go back to this ROS package by ``roscd`` command.
   See what happens when running the following commands.
 
-  .. code-block:: bash
+.. code-block:: bash
       
     cd
     roscd ee106s23
@@ -72,13 +72,13 @@ From now on, we assume that you have already installed Ubuntu 20.04 and ROS Noet
 
 - Congratulations. You have initialized the ROS workspace and created the ee106s23 ROS package!
   Take some time to think about how the above steps work. 
+
   
 ROS Publisher and Subcriber Python Nodes
 ----------
+
   
-Next step is to head to our  `ROS tutorial`_ and create the ROS publisher and subscriber nodes. The
- `ROS wiki <http://wiki.ros.org/ROS/Tutorials>`_ and
-`rospy <http://wiki.ros.org/rospy_tutorials>`_ contain the  analytic documentation of the followed steps.
+Next step is to head to our  `ROS tutorial`_ and create the ROS publisher and subscriber nodes. The `ROS wiki <http://wiki.ros.org/ROS/Tutorials>`_ and `rospy <http://wiki.ros.org/rospy_tutorials>`_ contain the  analytic documentation of the followed steps.
 
 .. _ROS tutorial: https://ucr-robotics.readthedocs.io/en/latest/intro_ros.html
 
@@ -87,7 +87,7 @@ Creation of Custom ROS Message
 
 As mentioned in the class, ROS features a simplified messages description language for describing the data values that ROS nodes publish. In our example, we will create a new ROS message, named "EE106lab_custom", which will be described by,
 
-  .. code-block:: bash
+.. code-block:: bash
 
     Header header
     int32 int_data
@@ -98,21 +98,21 @@ To create this new message type, initially create a folder ``msg`` inside the ``
 
 To be able to use the new ROS message type, we need to indicate its creation to the ROS workspace and compile it. To achieve this, fistly you need to update the package.xml of ``ee106s23`` and make sure these two lines are in it,
 
-  .. code-block:: bash
+.. code-block:: python
 
   <build_depend>message_generation</build_depend>
   <run_depend>message_runtime</run_depend>
 
 Additionally, to indicate this modification to the cmake compiler, you need to update the line of CMakeLists.txt of `ee106s23` package to contain the message_generation,
 
-  .. code-block:: bash
+.. code-block:: python
 
   # Update the existing line
   find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation)
 
 and uncomment this block,
 
-  .. code-block:: bash
+.. code-block:: python
 
   # add_message_files(
   #   FILES
@@ -122,8 +122,8 @@ and uncomment this block,
 
 to modify it like,
 
-  .. code-block:: bash
-    
+.. code-block:: python
+
   add_message_files(
     FILES
     EE106lab_custom.msg
