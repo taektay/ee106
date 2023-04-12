@@ -4,41 +4,15 @@ Lab 1: Run in Gazebo
 Overview
 --------
 
-In this lab, we are going to create a ROS workspace and a ROS package, 
-launch a Turtlebot robot and play with it, launch a robot arm and play with it. 
+In this lab, we are going to initialize ROS workspace, create our first ROS package, and create two communicating ROS Nodes.
 
 While following the step-by-step tutorials, please take your time to think about 
-what you are doing and what happens in each step, with the help of Google if necessary.
+what you are doing and what happens in each step.
 
-Preview: Next week we are going to learn how to write Python scripts to control the Turtlebot robot.
-
-
-Submission
+Creation of ROS Package
 ----------
 
-#. Submission: individual submission via Gradescope
-
-#. Demo: required (one for Turtlebot and one for robot arm)
-
-#. Due time: 5:00pm, Oct 7, Friday
-
-#. Files to submit: (please use exactly the same filename; case sensitive)
-
-   - lab1_report.pdf (please use the provided Word template and export to pdf)
-
-#. Grading rubric:
-
-   - \+ 20%  Have the ROS workspace and the ROS package ready.
-   - \+ 30%  Launch a Turtlebot robot in Gazebo and demo to TAs how you play with it.
-   - \+ 30%  Launch a ReactorX 150 robot arm in Gazebo and demo to TAs how you play with it.
-   - \+ 20%  Write down what you have learned, your findings and thoughts in lab report.
-   - \- 15%  Penalty applies for each late day (up to two days). 
-
-
-ROS Basics
-----------
-
-From now on, we assume that you have already installed Ubuntu 16.04 and ROS Kinetic.
+From now on, we assume that you have already installed Ubuntu 20.04 and ROS Noetic.
 
 - Please open a new terminal, and create a new ROS workspace by the following commands (run them line by line).
 
@@ -96,143 +70,84 @@ From now on, we assume that you have already installed Ubuntu 16.04 and ROS Kine
     cd ~/Documents
     roscd ee106s23
 
-- Congratulations. You have completed the basic ROS tutorials.
-  Take some time to think about how the above steps work.
-
-
-Set up Turtlebot in Gazebo
---------------------------
-
-- First let's upgrade existing packages and install some dependencies for Turtlebot. 
-
-  .. code-block:: bash
-      
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get install ros-kinetic-turtlebot ros-kinetic-turtlebot-apps ros-kinetic-turtlebot-interactions ros-kinetic-turtlebot-simulator
-    sudo apt-get install ros-kinetic-kobuki-ftdi ros-kinetic-ar-track-alvar-msgs
-
-- Navigate to your ``ee144f21`` package and create a new folder and a new launch file.
-
-  .. code-block:: bash
-      
-    roscd ee106s23
-    mkdir launch
-    cd launch
-    touch gazebo.launch
-    gedit gazebo.launch
-
-- Please copy and paste the following script, then save it.
-
-  .. literalinclude:: ../launch/gazebo.launch
-    :language: xml
-
-
-Run Turtlebot in Gazebo
------------------------
-
-- Launch Gazebo simulator and spawn a new robot by the following command.
-  It may take a while at the first time you open Gazebo, 
-  since it will need to download some models and world environments.
-
-  .. code-block:: bash
-      
-    roslaunch ee106s23 gazebo.launch
-
-.. note::
-
-  If you experienced graphic issues in Gazebo, please run the following command for once.
-  Then close all terminals and try again.
-
-  .. code-block:: bash
-      
-    echo "export SVGA_VGPU10=0" >> ~/.bashrc
-
-  If the issue persists, please shutdown your VM, go to VM settings and allocate more resources
-  (Processor Cores, Memory, Graphics Memory). If the issue still persists, please disable 
-  "3D Acceleration" in Display settings.
+- Congratulations. You have initialized the ROS workspace and created the ee106s23 ROS package!
+  Take some time to think about how the above steps work. 
   
-- Once the robot is successfully spawned in Gazebo, we can open a new terminal and launch the teleop node.
+ROS Publisher and Subcriber Python Nodes
+----------
+  
+Next step is to head to our  `ROS tutorial`_ and create the ROS publisher and subscriber nodes. The
+ `ROS wiki <http://wiki.ros.org/ROS/Tutorials>`_ and
+`rospy <http://wiki.ros.org/rospy_tutorials>`_ contain the  analytic documentation of the followed steps.
+
+.. _ROS tutorial: https://ucr-robotics.readthedocs.io/en/latest/intro_ros.html
+
+Creation of Custom ROS Message
+----------
+
+As mentioned in the class, ROS features a simplified messages description language for describing the data values that ROS nodes publish. In our example, we will create a new ROS message, named "EE106lab_custom", which will be described by,
 
   .. code-block:: bash
-      
-    roslaunch turtlebot_teleop keyboard_teleop.launch
 
-- Keep the teleop terminal open (selected) and you should be able to control the robot using keyboard now. 
-  The teleop program in this terminal takes in whatever keys you entered and 
-  converts them into velocity commands to send to the robot. Now spend some time playing with it! 
-  (Don't send the keyboard teleop commands to the Gazebo window, it won't work; send commands to the terminal)
+    Header header
+    int32 int_data
+    float32 float_data
+    string string_data
 
-- You can also put some obstacles (objects) in Gazebo simulation environment,
-  and drive the robot to collide with obstacles. See what happens :)
+To create this new message type, initially create a folder ``msg`` inside the ``ee106s23`` ROS package. Additionally, create a file ``EE106lab_custom.msg`` inside the created ``msg`` folder, by containing the information depicted above. 
 
-.. note::
-
-  To terminate the programs running in the terminal, please use ``Ctrl + C`` and wait for a moment
-  (it does take about 10s for Gazebo to shut down). 
-  If the terminal is closed without terminating the programs properly 
-  (meaning that the programs are still running in the back-end),
-  you will see a Gazebo crash error in the next run.
-
-
-Set up robot arm in Gazebo
---------------------------
-
-- First let's download the ROS packages for the robot arm.  
+To be able to use the new ROS message type, we need to indicate its creation to the ROS workspace and compile it. To achieve this, fistly you need to update the package.xml of ``ee106s23`` and make sure these two lines are in it,
 
   .. code-block:: bash
-      
-    cd ~/catkin_ws/src
-    git clone https://github.com/UCR-Robotics/interbotix_ros_arms.git
+  <build_depend>message_generation</build_depend>
+  <run_depend>message_runtime</run_depend>
 
-- We can install the dependencies by the following commands.
-
-  .. code-block:: bash
-      
-    cd ~/catkin_ws
-    rosdep update --include-eol-distros
-    rosdep install --from-paths src --ignore-src -r -y
-
-- We need to add one more package that is not currently supported by ``rosdep`` install.
-  (BTW, this *modern_robotics* library is developed by the authors of our textbook *Modern Robotics*.
-  It contains the Python implementation of some common operations. We will learn them in lectures as well.)
+Additionally, to indicate this modification to the cmake compiler, you need to update the line of CMakeLists.txt of `ee106s23` package to contain the message_generation,
 
   .. code-block:: bash
-      
-    sudo apt install python-pip
-    sudo pip install modern_robotics
+  # Update the existing line
+  find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation)
 
-- Lastly, with all dependencies ready, we can build the ROS package by the following commands.
-
-  .. code-block:: bash
-      
-    cd ~/catkin_ws
-    catkin_make
-
-
-Play with robot arm in Gazebo
------------------------------
-
-- Launch the ReactorX 150 robot arm in Gazebo by the following command.
+and uncomment this block,
 
   .. code-block:: bash
-      
-    roslaunch interbotix_moveit interbotix_moveit.launch robot_name:=rx150 use_gazebo:=true
+  # add_message_files(
+  #   FILES
+  #   Message1.msg
+  #   Message2.msg
+  # )
 
-- You will see the robot arm is ready in Gazebo but the RViz (the visualization software used in ROS) is still pending.
-  This is because it is still waiting for Gazebo to start simulation. 
-  In the bottom left of Gazebo window, you will see a small **Play ▶ button**. Click it to let it run!
+to modify it like,
 
-- Once Gazebo starts simulation, the RViz will prompt you two panels on the left and a visualization of the robot arm on the right. 
-  On the top left panel, go to "MotionPlanning" -> "Planning Request" -> "Query Goal State" and check this box. 
-  Then you can drag the "ball" on the tip of the robot arm to wherever you want it to go. 
+  .. code-block:: bash
+  add_message_files(
+    FILES
+    EE106lab_custom.msg
+  )
 
-- Once a goal pose is set, in the bottom left panel, go to "Planning" tab and try buttons "Plan", "Execute", or "Plan and Execute". 
-  Cool! The software can figure out a path for the arm to follow and reach the exact goal pose you just set.
-  Spend some time playing with it!
+to include the newly created ``msg`` type. By performing ``catkin_make`` under the ``~\catkin_ws\`` directory the ROS package is compiled and  the ``EE106lab_custom.msg`` can be used by any node of any package, as soon as the depedencies are satisfied. This ``msg`` structure will be utilized and tested in the submission part of Lab 1. More information about the previous steps can be found in the official `ROS msg page  <http://wiki.ros.org/msg>`_.
 
-- You can also take a look at Gazebo to see the current status of the robot arm. 
-  RViz provides a tool for better interaction, but only Gazebo shows the real physical status.
 
-- Have fun!!
+Submission
+----------
+
+#. Submission: individual submission via Gradescope
+
+#. Demo: required (one for Turtlebot and one for robot arm)
+
+#. Due time: 11:59pm, Apr 20, Thursday
+
+#. Files to submit: 
+
+   - lab1_report.pdf
+
+#. Grading rubric:
+
+   - \+ 20%  Create a new ROS publisher and subscriber Node (python).
+   - \+ 20%  Create a new ROS message type, named ``EE106lab_custom_new.msg``, that contains a Header and two int32 variables. Build the ROS workspace following the above steps.
+   - \+ 10% Import the ``EE106lab_custom_new.msg`` in both publisher and subscriber scripts.
+   - \+ 15% Update the publisher Node to send a ROS topic named ``EE106lab_topic``, of ``EE106lab_custom_new`` msg type. Send random integers over the ROS topic and update the header with the corresponding timestamp.
+   - \+ 15% Update the subscriber Node to receive the ``EE106lab_topic`` and print the addition of the two int32 variables and the Header timestamp information. 
+   - \+ 30%  Write down your lab report, by including comments and screenshots of the followed steps, along with terminal results and important findings.
+   - \- 15%  Penalty applies for each late day (up to two days). 
 
