@@ -1,4 +1,4 @@
-Lab 1: Run in Gazebo
+Lab 1: ROS Nodes, Topics, and Messages
 ====================
 
 Overview
@@ -99,18 +99,21 @@ To create this new message type, initially create a folder ``msg`` inside the ``
 To be able to use the new ROS message type, we need to indicate its creation to the ROS workspace and compile it. To achieve this, fistly you need to update the package.xml of ``ee106s23`` and make sure these two lines are in it,
 
   .. code-block:: bash
+
   <build_depend>message_generation</build_depend>
   <run_depend>message_runtime</run_depend>
 
 Additionally, to indicate this modification to the cmake compiler, you need to update the line of CMakeLists.txt of `ee106s23` package to contain the message_generation,
 
   .. code-block:: bash
+
   # Update the existing line
   find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation)
 
 and uncomment this block,
 
   .. code-block:: bash
+
   # add_message_files(
   #   FILES
   #   Message1.msg
@@ -120,6 +123,7 @@ and uncomment this block,
 to modify it like,
 
   .. code-block:: bash
+    
   add_message_files(
     FILES
     EE106lab_custom.msg
