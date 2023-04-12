@@ -131,7 +131,16 @@ to modify it like,
     EE106lab_custom.msg
   )
 
-to include the newly created ``msg`` type. By performing ``catkin_make`` under the ``~\catkin_ws\`` directory the ROS package is compiled and  the ``EE106lab_custom.msg`` can be used by any node of any package, as soon as the depedencies are satisfied. This ``msg`` structure will be utilized and tested in the submission part of Lab 1. More information about the previous steps can be found in the official `ROS msg page  <http://wiki.ros.org/msg>`_.
+to include the newly created ``msg`` type. Similarly, add the ``message_generation`` at ``catkin_package`` field, as apperead bellow,
+
+.. code-block:: python
+
+  catkin_package(
+    ...
+    CATKIN_DEPENDS rospy std_msgs message_runtime
+    ...)
+
+and uncomment the ``generate_messages`` cmake field. By performing ``catkin_make`` under the ``~\catkin_ws\`` directory the ROS package is compiled and  the ``EE106lab_custom.msg`` can be used by any node of any package, as soon as the depedencies are satisfied. This ``msg`` structure will be utilized and tested in the submission part of Lab 1. More information about the previous steps can be found in the official `ROS msg page  <http://wiki.ros.org/msg>`_.
 
 
 .. Submission
