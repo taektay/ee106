@@ -80,14 +80,40 @@ ROS Publisher and Subcriber Python Nodes
 ----------
 
   
-Next step is to head to our  `ROS tutorial`_ and create the ROS publisher and subscriber nodes. The `ROS wiki <http://wiki.ros.org/ROS/Tutorials>`_ and `rospy <http://wiki.ros.org/rospy_tutorials>`_ contain the  analytic documentation of the followed steps.
+The next step is to head to our  `ROS tutorial`_ and create the ROS publisher and subscriber nodes. The Python scripts can be saved under the ``ee106s23/src/`` folder. To be able to use the developed ROS python nodes, you need to provide execution permissions by,
+
+.. code-block:: bash
+
+    roscd ee106s23/src/
+    chmod +x publisher.py
+    chmod +x subscriber.py
+
+To execute the created ROS nodes, create two separate terminals, and execute,
+
+.. code-block:: bash
+
+    rosrun ee106s23 publisher.py
+
+and
+
+.. code-block:: bash
+
+    rosrun ee106s23 subscriber.py
+
+By performing these commands you have successfully created and executed your first ROS application, on which you transfer string data through a ROS topic from the ``talker`` to the ``listener`` ROS node. To preview the transmitted information through the ``chatter`` ROS topic, you can use,
+
+.. code-block:: bash
+
+    rostopic echo /chatter
+
+The `ROS wiki <http://wiki.ros.org/ROS/Tutorials>`_ and `rospy <http://wiki.ros.org/rospy_tutorials>`_ contain the  analytic documentation of the followed steps.
 
 .. _ROS tutorial: https://ucr-robotics.readthedocs.io/en/latest/intro_ros.html
 
 Creation of Custom ROS Message
 ----------
 
-As mentioned in the class, ROS features a simplified messages description language for describing the data values that ROS nodes publish. In our example, we will create a new ROS message, named "EE106lab_custom", which will be described by,
+As mentioned in the class, ROS features a simplified message description language for describing the data values that ROS nodes publish. In our example, we will create a new ROS message, named "EE106lab_custom", which will be described by,
 
 .. code-block:: bash
 
@@ -131,7 +157,7 @@ to modify it like,
     EE106lab_custom.msg
   )
 
-to include the newly created ``msg`` type. Similarly, add the ``message_generation`` at ``catkin_package`` field, as apperead bellow,
+to include the newly created ``msg`` type. Similarly, add the ``message_generation`` at ``catkin_package`` field, as appeared bellow,
 
 .. code-block:: python
 
@@ -143,26 +169,26 @@ to include the newly created ``msg`` type. Similarly, add the ``message_generati
 and uncomment the ``generate_messages`` cmake field. By performing ``catkin_make`` under the ``~\catkin_ws\`` directory the ROS package is compiled and  the ``EE106lab_custom.msg`` can be used by any node of any package, as soon as the depedencies are satisfied. This ``msg`` structure will be utilized and tested in the submission part of Lab 1. More information about the previous steps can be found in the official `ROS msg page  <http://wiki.ros.org/msg>`_.
 
 
-.. Submission
-.. ----------
+Submission
+----------
 
-.. #. Submission: individual submission via Gradescope
+#. Submission: individual submission via Gradescope
 
-.. #. Demo: required (one for Turtlebot and one for robot arm)
+#. Demo: required (Present the subscriber's additions results in real-time.)
 
-.. #. Due time: 11:59pm, Apr 20, Thursday
+#. Due time: 11:59pm, Apr 20, Thursday
 
-.. #. Files to submit: 
+#. Files to submit: 
 
-..    - lab1_report.pdf
+   - lab1_report.pdf
 
-.. #. Grading rubric:
+#. Grading rubric:
 
-..    - \+ 20%  Create a new ROS publisher and subscriber Node (python).
-..    - \+ 20%  Create a new ROS message type, named ``EE106lab_custom_new.msg``, that contains a Header and two int32 variables. Build the ROS workspace following the above steps.
-..    - \+ 10% Import the ``EE106lab_custom_new.msg`` in both publisher and subscriber scripts.
-..    - \+ 10% Update the publisher Node to send a ROS topic named ``EE106lab_topic``, of ``EE106lab_custom_new`` msg type. Send random integers over the ROS topic and update the header with the corresponding timestamp.
-..    - \+ 10% Update the subscriber Node to receive the ``EE106lab_topic`` and print the addition of the two int32 variables and the Header timestamp information. 
-..    - \+ 30%  Write down your lab report, by including comments and screenshots of the followed steps, along with terminal results and important findings.
-..    - \- 15%  Penalty applies for each late day (up to two days). 
+   - \+ 20%  Create a new ROS publisher and subscriber node (python scripts).
+   - \+ 20%  Create a new ROS message type, named ``EE106lab_custom_new.msg``, that contains a Header and two int32 variables and save it in the ``msg`` folder. Build the ROS workspace following the above steps.
+   - \+ 10% Import the ``EE106lab_custom_new.msg`` in both publisher and subscriber scripts.
+   - \+ 10% Update the publisher ROS node to send a ROS topic named ``EE106lab_topic``, of ``EE106lab_custom_new`` msg type. Send random integers over the ROS topic and update the header with the corresponding timestamp. For the random integer generator you can use ``random.randint(a,b)`` function from `random <https://www.w3schools.com/python/ref_random_randint.asp>`_ python library.
+   - \+ 10% Update the subscriber ROS node to receive the ``EE106lab_topic`` and print the addition of the two int32 variables and the Header timestamp information during the callback. 
+   - \+ 30%  Write down your lab report, by including comments and screenshots of the following steps, along with terminal results and important findings.
+   - \- 15%  Penalty applies for each late day (up to two days). 
 
