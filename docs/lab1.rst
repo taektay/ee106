@@ -184,7 +184,7 @@ Submission
 
 #. Grading rubric:
 
-   - \+ 20%  Create a new ROS publisher and subscriber node (python scripts). You can use the Python scripts provided at the ee106 class` repository <https://github.com/UCR-Robotics/ee106>`_.
+   - \+ 20%  Create a new ROS publisher and subscriber node (python scripts). You can use the Python scripts provided at the ee106 class `repository <https://github.com/UCR-Robotics/ee106/tree/main/scripts>`_.
    - \+ 20%  Create a new ROS message type, named ``EE106lab_custom_new.msg``, that contains a Header and two int32 variables and save it in the ``msg`` folder. Build the ROS workspace following the above steps.
    - \+ 10% Import the ``EE106lab_custom_new.msg`` in both publisher and subscriber scripts.
    - \+ 10% Update the publisher ROS node to send a ROS topic named ``EE106lab_topic``, of ``EE106lab_custom_new`` msg type. Send random integers over the ROS topic and update the header with the corresponding timestamp. For the random integer generator you can use ``random.randint(a,b)`` function from the `random <https://www.w3schools.com/python/ref_random_randint.asp>`_ python library.
