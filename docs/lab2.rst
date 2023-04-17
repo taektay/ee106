@@ -4,11 +4,11 @@ Lab 2: ROS Tools and Testing on Real Robot
 Overview
 --------
 
-In this lab, we are going to test various ROS tools developed for illustrating the ROS Nodes and Topic graph relations, visualizing the ROS Topics in real-time, and saving-replaying ROS message data. ROS, as a tool-based framework, features a plethora of applications, which can also be seen `here <http://wiki.ros.org/Tools>`_.
+In this lab, we are going to test ROS tools that are developed for illustrating the ROS Nodes and Topic graph relations, visualizing the ROS Topics in real-time, and saving-replaying ROS message data. ROS, as a tool-based framework, features a plethora of applications, which can also be found `here <http://wiki.ros.org/Tools>`_.
 
-Additionally, the Clearpath Jackal robot will be demonstrated in the class, along with the use of some of the ROS tools. Afterward, the simulated version of the Jackal robot will be deployed in the Gazebo simulator and it will be compared with the real robot. A 2D LiDAR ranging scenario will be demonstrated and will be the base of this lab's assignment.
+Additionally, the `Clearpath Jackal <https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/>`_ mobile robot will be demonstrated in the class, along with the use of some of the ROS tools. Furthermore, the simulated version of the Jackal robot will be deployed in the Gazebo simulator and it will be compared with the real robot. A 2D LiDAR ranging scenario will be demonstrated and will be the base of this lab's assignment.
 
-Install Gazebo
+Installing Gazebo Simulator
 -----------
 
 The Gazebo simulator is a broadly used open-source robotic simulator, that has been used for ROS application development before testing on robots in the real world. To install the Gazebo simulator we need to perform,
@@ -26,12 +26,12 @@ To install the official ROS package of the Clearpath Jackal robot for its Gazebo
 to install the official Gazebo package of the simulated Clearpath Jackal robot
 
 
-ROS Launch
+ROS Launch files
 ----------
 
 Before we proceed with the experiment on the Jackal robot and the ROS tools, we need to describe the ROS launch file functionality. Particularly, a ROS launch file is a ``XML``  type file with a ``.launch`` file extension, which can be used to launch multiple ROS nodes at the same time while it can set values on parameters in the Parameters Server before executing the ``rosrun``. The ROS launch files can are kept in the ``launch`` folder of each ROS package.
 
-A example of a launch file could be,
+An example of a launch file could be,
 
 .. code-block:: html
 
@@ -51,26 +51,26 @@ where,
 .. code-block:: html
   <arg name="x_var" default="0" /><arg name="enable_var" default="true" />
 
-is an example of initializing the variable ``x_var`` with the value 0 and the variable ``enable_var`` with True. The code part of,
+is the initialization of the variable ``x_var`` with the value 0 and the variable ``enable_var`` with True. The code part of,
 
 .. code-block:: html
   <node pkg="package_name" name="node_name" type="node_filename" />
 
-executes the node ``node_filename`` from the package ``package_name`` and names it ``node_name``. The second node call part 
+executes the node ``node_filename`` from the package ``package_name`` and names it ``node_name``. The second node call part, namely,
 
 .. code-block:: html
   <node pkg="package_name" name="node_name_2" type="node_filename_2 args="-x $(arg x_var) -enable_var $(arg enable_var)" 
 
-it executes the ``node_filename_2`` node, but also provides argument information on the callback.
+executes the ``node_filename_2`` node, but also provides argument information through the Parameter Server.
 
-To execute the ROS launch file, you can execute in a new terminal,
+To execute the ROS launch file you can perform in a new terminal,
 
 .. code-block:: bash
   roslaunch package_name file.launch
 
-Now, lets try to create a launch file for our created ROS package, namely the ``ee106s23``. Specifically, create a ROS launch that you can execute at the same time both the `publisher` and `subscriber` node of the Lab 1.
+Now, lets try to create a launch file for our created ROS package, namely the ``ee106s23``. Specifically, create a ROS launch that you can execute at the same time both the `publisher` and `subscriber` node of the Lab 1. Show the results to the Teaching Assistant.
 
-rqt and rqt_graph
+rqt and rqt_graph Tools
 ----------
 
 The rqt tool as a QT-based framework developed for ROS to enable the creation of user interface-enabled applications. The ``rqt_graph`` is visualizing tool that can illustrate the relations of the running ROS nodes and topics in a graph illustration.
@@ -83,7 +83,7 @@ To test the result of the rqt-graph, firstly enable the ROS nodes of your applic
 RViz : ROS Visualisation Tool
 --------------
 
-In addition, the most useful visualization tool that is integrated in ROS, is the RViz. This tool is used to illustrate in real-time the published raw information that is published via the ROS topics under a predefined coordinate system. To enable RViz you can perform in a separate terminal,
+In addition, the main visualization tool that is used in ROS software development, is the RViz. This tool is used to illustrate the raw information that is published by the ROS topics, in real-time, with respect to a predefined coordinate system. To enable RViz you can perform in a separate terminal,
 
 .. code-block:: bash
 
@@ -92,22 +92,23 @@ In addition, the most useful visualization tool that is integrated in ROS, is th
 Gazebo Simulation and the Clearpath Jackal Robot
 --------------
 
-In order to start the Gazebo simulator with an empty world, you can execute,
+In order to start the Gazebo simulator with an empty world, you can execute, 
 
 .. code-block:: bash
 
   roslaunch gazero_ros empty_world.launch
 
-To ideally exit or terminate Gazebo you should use the window terminating button. In many cases, such as closing the terminal or if Gazebo is not responding, you can terminate properly in a separate terminal, 
+To properly exit or terminate Gazebo you should use the window terminating button. In many cases, such as closing abruptly the terminal or if the Gazebo is not responding, you can terminate it by executing in a new terminal, 
 
 .. code-block:: bash
 
   sudo killall gzserver
   sudo killall gzclient
 
-To spawn the Jackal robot inside the simulator world, we will initialize a launch file and we will save it inside the ``ee104s23/launch`` folder. Specifically, create a file,   
+As the Gazebo is up and running, we can spawn a Jackal robot inside the simulated environment. To achieve that, we will create a dedicated ROS launch file in ``ee104s23/launch`` folder and attach the following,   
 
 .. code-block:: html
+  
   <launch>
     <arg name="x" default="0" />
     <arg name="y" default="0" />
@@ -136,9 +137,22 @@ To spawn the Jackal robot inside the simulator world, we will initialize a launc
 
 .. then create a ROS subscriber and try to collect the data from the raw pointcloud and check distances
 
+This file will be the ROS launch file that we will use to start Gazebo and spawn a simulated Jackal robot inside the world.  Specifically, the variables `x,y,z` and `yaw` define the initial position and orientation values of the robot in the world. The 'joystick' variable enables the teleoperation of the Jackal robot through a joystick controller. This file can be saved in a new ``.launch`` file inside the ``ee104s23`` ROS package. After the execution of the above ROS launch file, you can use ``rviz`` to visualize the capture sensory information from the simulated Jackal robot.
 
+Robot Teleoperation
+-----------------
 
+Nowadays, most of the robots support teleoperation through a connected keyboard or a gamepad/joystick. In ROS we can use the ``teleop_twist_keyboard <https://github.com/ros-teleop/teleop_twist_keyboard>``_ to use our keyboard for robot teleoperation, which publishes `geometry_twist/Twist` message on the ``cmd_vel`` ROS topic. 
+.. rosrun, rostopic, rosmsg, rosnode, rosbag
 
+To install this package, 
+
+.. code-block:: bash
+
+  cd ~/catkin_ws/src/
+  git clone https://github.com/ros-teleop/teleop_twist_keyboard.git
+
+and build the catkin workspace.
 
 Reading Materials
 -----------------
