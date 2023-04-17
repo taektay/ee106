@@ -29,9 +29,9 @@ to install the official Gazebo package of the simulated Clearpath Jackal robot
 ROS Launch
 ----------
 
-Before we proceed with the experiment on the Jackal robot and the ROS tools, we need to describe the ROS launch file functionality. Particularly, a ROS launch file is a ``XML``  type file with a ``.launch`` file extension, which can be used to launch multiple ROS nodes at the same time, while setting values on parameters in the Parameters Server before ``rosrun``. The ROS launch files can are kept in the ``launch`` folder of each ROS package.
+Before we proceed with the experiment on the Jackal robot and the ROS tools, we need to describe the ROS launch file functionality. Particularly, a ROS launch file is a ``XML``  type file with a ``.launch`` file extension, which can be used to launch multiple ROS nodes at the same time, while setting values on parameters in the Parameters Server before executing the ``rosrun``. The ROS launch files can are kept in the ``launch`` folder of each ROS package.
 
-A normal content of a launch file may have,
+A example of a launch file could be,
 
 .. code-block:: html
 
@@ -40,11 +40,30 @@ A normal content of a launch file may have,
           <arg name="enable_var" default="true" />
 
           <!-- This is a comment -->
-          <node pkg="package_name" name="node_name" type="node_filename_name" />
+          <node pkg="package_name" name="node_name" type="node_filename" />
+
+          <node pkg="package_name" name="node_name_2" type="node_filename_2 args="-x $(arg x_var) -enable_var $(arg enable_var)" />
 
   </launch>
 
-To execute the newly create ROS launch file, you can do,
+where,
+
+.. code-block:: html
+  <arg name="x_var" default="0" /><arg name="enable_var" default="true" />
+
+is an example of initializing the variable ``x_var`` with the value 0 and the variable ``enable_var`` with True. The code part of,
+
+.. code-block:: html
+  <node pkg="package_name" name="node_name" type="node_filename" />
+
+executes the node ``node_filename`` from the package ``package_name`` and names it ``node_name``. The second node call part 
+
+.. code-block:: html
+  <node pkg="package_name" name="node_name_2" type="node_filename_2 args="-x $(arg x_var) -enable_var $(arg enable_var)" 
+
+it executes the ``node_filename_2`` node, but also provides argument information on the callback.
+
+To execute the ROS launch file, you can execute in a new terminal,
 
 .. code-block:: bash
   roslaunch package_name file.launch
@@ -70,7 +89,7 @@ In addition, the most useful visualization tool that is integrated in ROS, is th
 
   rviz
 
-Clearpath Jackal Robot and Gazebo Simulation
+Gazebo Simulation and the Clearpath Jackal Robot
 --------------
 
 In order to start the Gazebo simulator with an empty world, you can execute,
@@ -79,18 +98,14 @@ In order to start the Gazebo simulator with an empty world, you can execute,
 
   roslaunch gazero_ros empty_world.launch
 
-To ideally exit or terminate Gazebo you should use the window terminating button. In many cases such as you close the terminal or Gazebo is not responding, you can execute in a separate terminal, 
+To ideally exit or terminate Gazebo you should use the window terminating button. In many cases, such as closing the terminal or if Gazebo is not responding, you can terminate properly in a separate terminal, 
 
 .. code-block:: bash
 
   sudo killall gzserver
   sudo killall gzclient
 
-
-then create a ros subscriber and try to collect the data from the raw pointcloud and check distances
-
-
-and a new one, 
+To spawn the Jackal robot inside the simulator world, we will initialize a launch file and we will save it inside the ``ee104s23/launch`` folder. Specifically, create a file,   
 
 .. code-block:: html
   <launch>
@@ -119,15 +134,7 @@ and a new one,
 
   </launch>
 
-
-
-
-
-
-
-
-
-
+.. then create a ROS subscriber and try to collect the data from the raw pointcloud and check distances
 
 
 
