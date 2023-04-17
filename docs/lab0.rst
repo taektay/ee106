@@ -171,13 +171,3 @@ on `ROS wiki <http://wiki.ros.org/ROS/Tutorials>`_ and
 
 Have fun!
 
-.. Install Gazebo
-.. -----------
-
-.. Gazebo simulator is the final installation, as it will be used in future labs. To install it,
-
-.. sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
-
-.. and 
-
-.. sudo apt-get install ros-noetic-jackal-gazebo

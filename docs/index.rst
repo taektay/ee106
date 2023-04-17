@@ -15,6 +15,7 @@ Programming Practical Robots!
     logistics
     lab0
     lab1
+    lab2
     linux
     ros
 
@@ -25,3 +26,4 @@ News
 - 04/07/2023: Please read `logistics <logistics.html>`_.
 - 04/07/2023: `Lab 0 <lab0.html>`_ is up!
 - 04/12/2023: `Lab 1 <lab1.html>`_ is up!
+- 04/19/2023: `Lab 2 <lab2.html>`_ is up!
