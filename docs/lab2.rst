@@ -110,7 +110,7 @@ To properly exit or terminate Gazebo you should use the window terminating butto
   sudo killall gzserver
   sudo killall gzclient
 
-As the Gazebo is up and running, we can spawn a Jackal robot inside the simulated environment. To achieve that, we will create a dedicated ROS launch file in ``ee104s23/launch`` folder and attach the following,   
+As the Gazebo is up and running, we can spawn a Jackal robot inside the simulated environment. To achieve that, we will create a dedicated ROS launch file in ``ee106s23/launch`` folder and attach the following,   
 
 .. code-block:: html
   
@@ -142,7 +142,7 @@ As the Gazebo is up and running, we can spawn a Jackal robot inside the simulate
 
 .. then create a ROS subscriber and try to collect the data from the raw pointcloud and check distances
 
-This file will be the ROS launch file that we will use to start Gazebo and spawn a simulated Jackal robot inside the world.  Specifically, the variables `x,y,z` and `yaw` define the initial position and orientation values of the robot in the world. The 'joystick' variable enables the teleoperation of the Jackal robot through a joystick controller. This file can be saved in a new ``.launch`` file inside the ``ee104s23`` ROS package. After the execution of the above ROS launch file, you can use ``rviz`` to visualize the captured sensory information from the simulated Jackal robot.
+This file will be the ROS launch file that we will use to start Gazebo and spawn a simulated Jackal robot inside the world.  Specifically, the variables `x,y,z` and `yaw` define the initial position and orientation values of the robot in the world. The 'joystick' variable enables the teleoperation of the Jackal robot through a joystick controller. This file can be saved in a new ``.launch`` file inside the ``ee106s23`` ROS package. After the execution of the above ROS launch file, you can use ``rviz`` to visualize the captured sensory information from the simulated Jackal robot.
 
 Robot Teleoperation
 -----------------
