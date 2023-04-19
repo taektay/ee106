@@ -1,4 +1,4 @@
-Lab 2: ROS Tools and Testing on Real Robot
+Lab 2: ROS Tools and Testing on a Real Robot
 ========================
 
 Overview
@@ -49,16 +49,20 @@ An example of a launch file could be,
 where,
 
 .. code-block:: html
-  <arg name="x_var" default="0" /><arg name="enable_var" default="true" />
+
+  <arg name="x_var" default="0" />
+  <arg name="enable_var" default="true" />
 
 is the initialization of the variable ``x_var`` with the value 0 and the variable ``enable_var`` with True. The code part of,
 
 .. code-block:: html
+
   <node pkg="package_name" name="node_name" type="node_filename" />
 
 executes the node ``node_filename`` from the package ``package_name`` and names it ``node_name``. The second node call part, namely,
 
 .. code-block:: html
+
   <node pkg="package_name" name="node_name_2" type="node_filename_2 args="-x $(arg x_var) -enable_var $(arg enable_var)" 
 
 executes the ``node_filename_2`` node, but also provides argument information through the Parameter Server.
@@ -66,6 +70,7 @@ executes the ``node_filename_2`` node, but also provides argument information th
 To execute the ROS launch file you can perform in a new terminal,
 
 .. code-block:: bash
+
   roslaunch package_name file.launch
 
 Now, lets try to create a launch file for our created ROS package, namely the ``ee106s23``. Specifically, create a ROS launch that you can execute at the same time both the `publisher` and `subscriber` node of the Lab 1. Show the results to the Teaching Assistant.
@@ -142,8 +147,9 @@ This file will be the ROS launch file that we will use to start Gazebo and spawn
 Robot Teleoperation
 -----------------
 
-Nowadays, most of the robots support teleoperation through a connected keyboard or a gamepad/joystick. In ROS we can use the ``teleop_twist_keyboard <https://github.com/ros-teleop/teleop_twist_keyboard>``_ to use our keyboard for robot teleoperation, which publishes `geometry_twist/Twist` message on the ``cmd_vel`` ROS topic. 
 .. rosrun, rostopic, rosmsg, rosnode, rosbag
+
+Nowadays, most of the robots support teleoperation through a connected keyboard or a gamepad/joystick. In ROS we can use the ``teleop_twist_keyboard <https://github.com/ros-teleop/teleop_twist_keyboard>``_ to use our keyboard for robot teleoperation, which publishes `geometry_twist/Twist` message on the ``cmd_vel`` ROS topic. 
 
 To install this package, 
 
@@ -153,6 +159,11 @@ To install this package,
   git clone https://github.com/ros-teleop/teleop_twist_keyboard.git
 
 and build the catkin workspace.
+
+.. Submission
+.. -----------------
+
+.. In this lab's submission, you need to develop a ROS node that can 
 
 Reading Materials
 -----------------
