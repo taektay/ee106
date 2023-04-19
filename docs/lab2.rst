@@ -173,20 +173,22 @@ In this lab's submission, we will develop a ROS node that will receive the simul
 
 #. Files to submit: 
 
-   - lab2_report.pdf (A template .pdf is provided for the report. Please include the developed Python code in your report.)
+   - lab2_report.pdf (A template .pdf is provided for the report.) **Please include screenshots were possible and describe in detail all followed steps by showing the reasoning and any important remarks.** The developed Python code can be included in the end of your report.
 
 #. Grading rubric:
 
    - \+ 10% Create a new Gazebo world with obstacles and save it in a new `.world` file.
    - \+ 10% Create a new ROS node that will subscribe to the robot's LiDAR ROS topic. The ROS message type of the LiDAR ROS Topic is the `sensor_msgs/LaserScan <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html>`_.
-   - \+ 10% Include a ROS publisher inside the newly created ROS node to publish a `std_msgs/String` ROS message over a new ROS topic named `jackal_robot_status`.
+   - \+ 10% Include a ROS publisher inside the newly created ROS node to publish a `std_msgs/String  <http://docs.ros.org/en/melodic/api/std_msgs/html/msg/String.html>`_ ROS message over a new ROS topic named `jackal_robot_status`.
    - \+ 20% Create a new Python function inside the ROS node to iterate over the LiDAR's captured distances, namely the variable `float32[] ranges` of the message `sensor_msgs/LaserScan`.
+
+
    - \+ 20% Use the ROS publisher to publish a `std_msgs/String` through `jackal_robot_status` ROS topic, including the message,
-      * ``critical`` if any of the `ranges` is smaller than `0.2m`
-      * ``major`` if any of the `ranges` is smaller than `0.5m` 
-      * ``minor`` if all `ranges > 1.0m` 
+      - ``critical`` if any of the `ranges` is smaller than `0.2m`
+      - ``major`` if any of the `ranges` is smaller than `0.5m` 
+      - ``minor`` if all `ranges > 1.0m` 
    - \+ 20% Demonstrate the ROS node functionality, by teleoperating the Jackal inside the Gazebo world and showcasing the transmitted ROS topic messages for each of the three cases. Specifically, include a screenshot of the published messages of `jackal_robot_status` by using ``rostopic`` in a new terminal and take a photo of the robot inside the Gazebo at the corresponding moment by showing the surrounding obstacles.
-   - \+ 10% Include a screenshot of the RViz while using the Jackal, having the RobotModel, Tf, and the LiDAR visualization. 
+   - \+ 10% Include a screenshot of the RViz while using the Jackal in the Gazebo world, having the RobotModel, TF, and the LiDAR visualization enabled. 
    - \- 15% Penalty applies for each late day (up to two days). 
   
 .. In this lab's submission, you need to develop a ROS node that can detect if there is an obstacle nearby to the simulated Jackal
