@@ -73,13 +73,13 @@ To execute the ROS launch file you can perform in a new terminal,
 
   roslaunch package_name file.launch
 
-Now, lets try to create a launch file for our created ROS package, namely the ``ee106s23``. Specifically, create a ROS launch that you can execute at the same time both the `publisher` and `subscriber` node of the Lab 1. Show the results to the Teaching Assistant.
+Now, let's try to create a launch file for our created ROS package, namely the ``ee106s23``. Specifically, create a ROS launch that you can execute at the same time both the `publisher` and `subscriber` nodes of the Lab 1. Show the results to the Teaching Assistant.
 
 rqt and rqt_graph Tools
 ----------
 
 The rqt tool as a QT-based framework developed for ROS to enable the creation of user interface-enabled applications. The ``rqt_graph`` is visualizing tool that can illustrate the relations of the running ROS nodes and topics in a graph illustration.
-To test the result of the rqt-graph, firstly enable the ROS nodes of your application and then execute the bellow command in a new terminal.
+To test the result of the rqt-graph, first enable the ROS nodes of your application and then execute the below command in a new terminal.
 
 .. code-block:: bash
 
@@ -142,7 +142,7 @@ As the Gazebo is up and running, we can spawn a Jackal robot inside the simulate
 
 .. then create a ROS subscriber and try to collect the data from the raw pointcloud and check distances
 
-This file will be the ROS launch file that we will use to start Gazebo and spawn a simulated Jackal robot inside the world.  Specifically, the variables `x,y,z` and `yaw` define the initial position and orientation values of the robot in the world. The 'joystick' variable enables the teleoperation of the Jackal robot through a joystick controller. This file can be saved in a new ``.launch`` file inside the ``ee104s23`` ROS package. After the execution of the above ROS launch file, you can use ``rviz`` to visualize the capture sensory information from the simulated Jackal robot.
+This file will be the ROS launch file that we will use to start Gazebo and spawn a simulated Jackal robot inside the world.  Specifically, the variables `x,y,z` and `yaw` define the initial position and orientation values of the robot in the world. The 'joystick' variable enables the teleoperation of the Jackal robot through a joystick controller. This file can be saved in a new ``.launch`` file inside the ``ee104s23`` ROS package. After the execution of the above ROS launch file, you can use ``rviz`` to visualize the captured sensory information from the simulated Jackal robot.
 
 Robot Teleoperation
 -----------------
@@ -160,10 +160,41 @@ To install this package,
 
 and build the catkin workspace.
 
-.. Submission
-.. -----------------
+Submission
+----------
 
-.. In this lab's submission, you need to develop a ROS node that can 
+#. Submission: individual submission via Gradescope
+
+In this lab's submission, we will develop a ROS node that will receive the simulated Jackal LiDAR information and will notify the user if the robot is getting closer to an obstacle. 
+
+.. #. Demo: required (Demonstrate the ROS node functionality in the Gazebo world by using the Jackal.)
+
+#. Due time: 11:59pm, Apr 27, Thursday
+
+#. Files to submit: 
+
+   - lab2_report.pdf (A template .pdf is provided for the report. Please include the developed Python code in your report.)
+
+#. Grading rubric:
+
+   - \+ 10% Create a new Gazebo world with obstacles and save it in a new `.world` file.
+   - \+ 10% Create a new ROS node that will subscribe to the robot's LiDAR ROS topic. The ROS message type of the LiDAR ROS Topic is the `sensor_msgs/LaserScan <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html>`_.
+   - \+ 10% Include a ROS publisher inside the newly created ROS node to publish a `std_msgs/String` ROS message over a new ROS topic named `jackal_robot_status`.
+   - \+ 20% Create a new Python function inside the ROS node to iterate over the LiDAR's captured distances, namely the variable `float32[] ranges` of the message `sensor_msgs/LaserScan`.
+   - \+ 20% Use the ROS publisher to publish a `std_msgs/String` through `jackal_robot_status` ROS topic, including the message,
+      * ``critical`` if any of the `ranges` is smaller than `0.2m`
+      * ``major`` if any of the `ranges` is smaller than `0.5m` 
+      * ``minor`` if all `ranges > 1.0m` 
+   - \+ 20% Demonstrate the ROS node functionality, by teleoperating the Jackal inside the Gazebo world and showcasing the transmitted ROS topic messages for each of the three cases. Specifically, include a screenshot of the published messages of `jackal_robot_status` by using ``rostopic`` in a new terminal and take a photo of the robot inside the Gazebo at the corresponding moment by showing the surrounding obstacles.
+   - \+ 10% Include a screenshot of the RViz while using the Jackal, having the RobotModel, Tf, and the LiDAR visualization. 
+   - \- 15% Penalty applies for each late day (up to two days). 
+  
+.. In this lab's submission, you need to develop a ROS node that can detect if there is an obstacle nearby to the simulated Jackal
+.. Develop a new python script
+.. do the subscriber read the sensor lidar
+.. detect if there is a 
+.. what is the publish rate of the node that can run max
+
 
 Reading Materials
 -----------------
