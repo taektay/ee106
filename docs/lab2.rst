@@ -142,7 +142,14 @@ As the Gazebo is up and running, we can spawn a Jackal robot inside the simulate
 
 .. then create a ROS subscriber and try to collect the data from the raw pointcloud and check distances
 
-This file will be the ROS launch file that we will use to start Gazebo and spawn a simulated Jackal robot inside the world.  Specifically, the variables `x,y,z` and `yaw` define the initial position and orientation values of the robot in the world. The 'joystick' variable enables the teleoperation of the Jackal robot through a joystick controller. This file can be saved in a new ``.launch`` file inside the ``ee106s23`` ROS package. After the execution of the above ROS launch file, you can use ``rviz`` to visualize the captured sensory information from the simulated Jackal robot.
+This file will be the ROS launch file that we will use to start Gazebo and spawn a simulated Jackal robot inside the world.  Specifically, the variables `x,y,z` and `yaw` define the initial position and orientation values of the robot in the world. The 'joystick' variable enables the teleoperation of the Jackal robot through a joystick controller. This file can be saved with the name of ``jackal.launch`` file inside the ``ee106s23`` ROS package. To execute the ROS launch file, you can perform in a new terminal,
+
+.. code-block:: bash
+
+  roslaunch ee106s23 jackal.launch
+
+After the execution of the above ROS launch file, you can use ``rviz`` to visualize the captured sensory information from the simulated Jackal robot. Place objects closely around the simulated robot and check the `front/scan` ROS topic of type `sensor_msgs/LaserScan` on how it updates the visualized information in RViz. 
+
 
 Robot Teleoperation
 -----------------
@@ -163,13 +170,20 @@ and build the catkin workspace.
 .. Submission
 .. ----------
 
+.. roscore
+.. roslaunch gazebo_ros empty_world.launch
+.. roslaunch ee106s23 jackal.launch
+.. rviz
+.. rosrun teleop_keyboard_. .. 
+
+
 .. #. Submission: individual submission via Gradescope
 
 .. In this lab's submission, we will develop a ROS node that will receive the simulated Jackal LiDAR information and will notify the user if the robot is getting closer to an obstacle. 
 
 .. .. #. Demo: required (Demonstrate the ROS node functionality in the Gazebo world by using the Jackal.)
 
-.. #. Due time: 11:59pm, Apr 27, Thursday
+.. #. Due time: 11:59pm, Apr 29, Saturday
 
 .. #. Files to submit: 
 

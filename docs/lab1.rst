@@ -88,7 +88,13 @@ The next step is to head to our  `ROS tutorial`_ and create the ROS publisher an
     chmod +x publisher.py
     chmod +x subscriber.py
 
-To execute the created ROS nodes, create two separate terminals, and execute,
+To execute the created ROS nodes, firstly you need to launch the ROS core in a new terminal by doing,
+
+.. code-block:: bash
+
+    roscore
+
+Then create two separate terminals, and execute,
 
 .. code-block:: bash
 
@@ -176,7 +182,7 @@ Submission
 
 #. Demo: required (Present the subscriber's additions results in real-time.)
 
-#. Due time: 11:59pm, Apr 20, Thursday
+#. Due time: 11:59pm, Apr 22, Saturday
 
 #. Files to submit: 
 
@@ -190,5 +196,4 @@ Submission
    - \+ 10% Update the publisher ROS node to send a ROS topic named ``EE106lab_topic``, of ``EE106lab_custom_new`` msg type. Send random integers over the ROS topic and update the header with the corresponding timestamp. For the random integer generator you can use ``random.randint(a,b)`` function from the `random <https://www.w3schools.com/python/ref_random_randint.asp>`_ python library.
    - \+ 10% Update the subscriber ROS node to receive the ``EE106lab_topic`` and print the addition of the two int32 variables and the Header timestamp information during the callback. 
    - \+ 30%  Write down your lab report, by including comments and screenshots of the following steps, along with terminal results and important findings.
-   - \- 15%  Penalty applies for each late day (up to two days). 
 
