@@ -156,7 +156,7 @@ Robot Teleoperation
 
 .. rosrun, rostopic, rosmsg, rosnode, rosbag
 
-Nowadays, most of the robots support teleoperation through a connected keyboard or a gamepad/joystick. In ROS we can use the ``teleop_twist_keyboard <https://github.com/ros-teleop/teleop_twist_keyboard>``_ to use our keyboard for robot teleoperation, which publishes `geometry_twist/Twist` message on the ``cmd_vel`` ROS topic. 
+Nowadays, most of the robots support teleoperation through a connected keyboard or a gamepad/joystick. In ROS we can use the `teleop_twist_keyboard <https://github.com/ros-teleop/teleop_twist_keyboard>`_ to use our keyboard for robot teleoperation, which publishes `geometry_twist/Twist` message on the ``cmd_vel`` ROS topic. 
 
 To install this package, 
 
