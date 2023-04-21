@@ -63,7 +63,7 @@ executes the node ``node_filename`` from the package ``package_name`` and names 
 
 .. code-block:: html
 
-  <node pkg="package_name" name="node_name_2" type="node_filename_2 args="-x $(arg x_var) -enable_var $(arg enable_var)" 
+  <node pkg="package_name" name="node_name_2" type="node_filename_2" args="-x $(arg x_var) -enable_var $(arg enable_var)" 
 
 executes the ``node_filename_2`` node, but also provides argument information through the Parameter Server.
 
