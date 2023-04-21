@@ -42,7 +42,7 @@ An example of a launch file could be,
           <!-- This is a comment -->
           <node pkg="package_name" name="node_name" type="node_filename" />
 
-          <node pkg="package_name" name="node_name_2" type="node_filename_2 args="-x $(arg x_var) -enable_var $(arg enable_var)" />
+          <node pkg="package_name" name="node_name_2" type="node_filename_2" args="-x $(arg x_var) -enable_var $(arg enable_var)" />
 
   </launch>
 
