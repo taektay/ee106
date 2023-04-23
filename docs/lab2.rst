@@ -202,7 +202,7 @@ In this lab's submission, we will develop a ROS node that will receive the simul
 #. Grading rubric:
 
    - \+ 10% Create a new Gazebo world with various obstacles.
-   - \+ 10% Create a new ROS node that will subscribe to the robot's LiDAR ROS topic. The ROS message type of the LiDAR ROS Topic is the `sensor_msgs/LaserScan <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html>`_.
+   - \+ 10% Create a new `ROS node <https://github.com/UCR-Robotics/ee106/tree/main/scripts/rangescheck_jackal.py>`_ that will subscribe to the robot's LiDAR ROS topic. The ROS message type of the LiDAR ROS Topic is the `sensor_msgs/LaserScan <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html>`_.
    - \+ 10% Include a ROS publisher inside the newly created ROS node to publish a `std_msgs/String  <http://docs.ros.org/en/melodic/api/std_msgs/html/msg/String.html>`_ ROS message over a new ROS topic named `jackal_robot_status`.
    - \+ 20% Create a new Python function inside the ROS node to iterate over the LiDAR's captured distances, namely the variable `float32[] ranges` of the message `sensor_msgs/LaserScan`.
 
