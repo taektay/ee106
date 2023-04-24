@@ -16,7 +16,6 @@ Programming Practical Robots!
     lab0
     lab1
     lab2
-    lab3
     linux
     ros
 
