@@ -214,12 +214,6 @@ In this lab's submission, we will develop a ROS node that will receive the simul
    - \+ 20% Demonstrate the ROS node functionality, by teleoperating the Jackal inside the Gazebo world and showcasing the transmitted ROS topic messages for each of the three cases. Specifically, include a screenshot of the published messages of `jackal_robot_status` by using ``rostopic`` in a new terminal and take a photo of the robot inside the Gazebo at the corresponding moment by showing the surrounding obstacles, for each of the three cases.
    - \+ 10% Include a screenshot of the RViz while using the Jackal in the Gazebo world, having the RobotModel, TF, and the LiDAR visualization enabled. 
    - \- 15% Penalty applies for each late day (up to two days). 
-  
-.. In this lab's submission, you need to develop a ROS node that can detect if there is an obstacle nearby to the simulated Jackal
-.. Develop a new python script
-.. do the subscriber read the sensor lidar
-.. detect if there is a 
-.. what is the publish rate of the node that can run max
 
 
 Reading Materials
