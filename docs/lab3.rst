@@ -29,11 +29,11 @@ As the robot has been successfully spawned inside the Gazebo world, we can enabl
 
 In order to visualize the robot in the RViz tool, we have to set firstly the visualization `Global Options/Fixed Frame` to any of the listed coordinate systems. For our setup, we set `Global Options/Fixed Frame` to ``base_link``, as it represents the base coordinate system of the Jackal robot. Also, we by using the `Add` button of the left panel of RViz, we add the visualization of the `TF`, the `RobotModel`, and the `LaserScan` by selecting, the latter, to visualize the `front/scan` ROS topic. Finally, to include a obstacle inside the Gazebo world, we add a `Stop Sign` model at the position (2,0,0).
 
- .. image:: ../images/jackal_stop_sign.png
+ .. image:: ./pics/jackal_stop_sign.png
     :align: center
 
 
- .. image:: ../images/jackal_stop_sign_rviz.png
+ .. image:: ./pics/jackal_stop_sign_rviz.png
     :align: center
 
 
@@ -42,7 +42,15 @@ ROS Frames and TF Listener
 
 `ROS frames <http://wiki.ros.org/tf2>`_ are fundamental entities in ROS, as they represent the existing coordinate systems of the robotic setup. Particularly, ROS frames can be assigned on any part of the robot, which can be considered rigid, as well as, on any onboard sensor. Thus, each captured measurement can be spatially described in the corresponding ROS frame of the capturing sensor, while multiple frames can be connected to each other spatially and form the ROS frame tree of the ROS setup.
 
-.. add image
+ .. image:: ./pics/jackal_frames.jpg
+    :align: center
+
+In order to publish a transformation between two ROS frames that remains static over time, you can use the tool `static_transform_publisher` from the `tf` ROS package. For example in our case, it would be ideal to create a frame for the front bumper of the Jackal, so we can spatially describe all captured ranging measurents in respect to it to avoid any potential collisions as it moves forward.
+To do that, we can describe the new `front_bumper` frame, with respect to the `base_link` frame of the robot, 
+
+.. code-block:: bash
+
+    rosrun tf static_transform_publisher base_link front_laser
 
 One of the terminal commands to obtain the `transformation matrix` between two ROS frames is,
 
