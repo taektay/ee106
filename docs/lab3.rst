@@ -46,11 +46,18 @@ ROS Frames and TF Listener
     :align: center
 
 In order to publish a transformation between two ROS frames that remains static over time, you can use the tool `static_transform_publisher` from the `tf` ROS package. For example in our case, it would be ideal to create a frame for the front bumper of the Jackal, so we can spatially describe all captured ranging measurents in respect to it to avoid any potential collisions as it moves forward.
-To do that, we can describe the new `front_bumper` frame, with respect to the `base_link` frame of the robot, 
+
+To do that, we can describe the new `front_bumper` frame, with respect to the `base_link` frame of the robot, by executing in a new terminal, 
 
 .. code-block:: bash
 
-    rosrun tf static_transform_publisher base_link front_laser
+    rosrun tf static_transform_publisher 0.26 0 0.11 0 0 0 1 base_link front_bumper 100
+
+where the arguments of this command are, 
+
+.. code-block:: bash
+
+    static_transform_publisher x y z qx qy qz qw frame_id child_frame_id  period(milliseconds)
 
 One of the terminal commands to obtain the `transformation matrix` between two ROS frames is,
 
