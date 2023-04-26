@@ -4,7 +4,7 @@ Lab 3: ROS Frames, Coordinate Systems, and the TF library
 Overview
 --------
 
-.. ADD
+In this lab we will investigate the reasons of using coordinate systems in nowadays robotic systems, and introduce the `ROS frames <http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF>`_ and the integrated `tf library <http://wiki.ros.org/tf>`_. Having that, we will demonstrate the existing coordinate systems on our Jackal robot inside the simulated world of Gazebo, we will create a new static transform, and will try to spatially georefernce each LiDAR measurement with respect to the newly created ROS frame.  
 
 RViz and TF Visualisation
 -----------
@@ -122,10 +122,10 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
 .. #. Grading rubric:
    
 ..    - \+ 10% Initialize the world setup as described above, by having the Jackal and the `Stop Sign` placed inside the Gazebo world.
-..    - \+ 10% Showcase on how you can print the `transformation matrix` between the `front_laser` frame and the frame of the front bumper `` by using the ``tf_echo`` command of the terminal.   
-..    - \+ 10% Create a new `ROS node <link>`_ that contains a ROS listener and obtain the transformation the `front_laser` and the `front_mount` frames.
-..    - \+ 20% Print the translation and rotation matrices from the captured transformation and form the transformation matrix [4,x4].
-..    - \+ 10% Use the code of Lab 2 to subscrive on the `sensor_msgs/LaserScan` ROS topic of Jackal and obtain the all the ranges that are not ``inf``.
+..    - \+ 10% Showcase on how you can print the `transformation matrix` between the `front_laser` frame and the frame of the front bumper `front_bumper` by using the ``tf_echo`` command of the terminal.   
+..    - \+ 10% Create a new `ROS node <link>`_ that contains a ROS listener and obtain the transformation the `front_laser` and the `front_bumper` frames.
+..    - \+ 20% Print the translation and rotation matrices from the captured transformation and form the transformation matrix [4x4].
+..    - \+ 10% Use the code of Lab 2 to subscribe on the `sensor_msgs/LaserScan` ROS topic of Jackal and obtain the all the ranges that are not ``inf``.
 ..    - \+ 20% Transform all the ranges of the `front_laser` frame to the `front_mount` frame.
 ..    - \+ 20% Teleoperate the robot inside the world and print the transformed `non inf` ranges. Include a screenshot of the terminal including the robot, the laser scan, and the terminal output (print) of the ROS node.
 ..    - \- 15% Penalty applies for each late day (up to two days). 
