@@ -4,6 +4,8 @@ Lab 3: ROS Frames, Coordinate Systems, and the TF library
 Overview
 --------
 
+.. ADD
+
 RViz and TF Visualisation
 -----------
 
@@ -92,7 +94,7 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
 
 .. #. Submission: individual submission via Gradescope
 
-.. In this lab's submission, we will
+.. ADD
 
 .. .. #. Demo: required (Demonstrate the ROS node functionality in the Gazebo world by using the Jackal.)
 
