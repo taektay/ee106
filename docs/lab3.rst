@@ -69,13 +69,14 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
 
 .. code-block:: python
 
-    #!/usr/bin/env python  
+    #!/usr/bin/env python
     import roslib
     roslib.load_manifest('ee106s23')
     import rospy
     import math
     import tf
     import geometry_msgs.msg
+    import numpy as np
 
     if __name__ == '__main__':
         rospy.init_node('tf_listener')
@@ -96,20 +97,27 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
             print("The translation is (x,y,z) = " + str(trans))
             print("The rotation (quaternion) is (x,y,z,w) = " + str(rot))
             print("The rotation (euler) is (r,p,y) = " + str(tf.transformations.euler_from_quaternion(rot)))
-        
             rot_mat = tf.transformations.quaternion_matrix(rot)
-            print(rot_mat)
-
+            print("The rotation (rotation matrix) is = " + str(tf.transformations.quaternion_matrix(rot)))
+            
+            # we assume that a Lidar point is detected, w.r.t the Lidar's frame
+            laser_point_detected = [1 , 0, 0, 1]
+            
+            # initialization of the tf matrix to describe it in the /base_link frame
+            rot_mat[0,3] = trans[0]
+            rot_mat[1,3] = trans[1]
+            rot_mat[2,3] = trans[2]
+            print(np.dot(rot_mat , laser_point_detected))
+            
             rate.sleep()
         
         
 .. Submission
 .. -----------
 
-
 .. #. Submission: individual submission via Gradescope
 
-.. ADD
+.. In this assignment, we will use our obstacle detection behavior (from Lab 2) based on LiDAR, to determine if an obstacle is close to the front_bumper. This behavior will be achieved by developing a new ROS node that will integrate a `tf listener`, along with a ROS subscriber and a publisher, to be able to receive the LiDAR measurements, transform them spatially, and determine the surrounding obstacle criticality. 
 
 .. .. #. Demo: required (Demonstrate the ROS node functionality in the Gazebo world by using the Jackal.)
 
@@ -124,9 +132,9 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
 ..    - \+ 10% Initialize the world setup as described above, by having the Jackal and the `Stop Sign` placed inside the Gazebo world.
 ..    - \+ 10% Showcase on how you can print the `transformation matrix` between the `front_laser` frame and the frame of the front bumper `front_bumper` by using the ``tf_echo`` command of the terminal.   
 ..    - \+ 10% Create a new `ROS node <link>`_ that contains a ROS listener and obtain the transformation the `front_laser` and the `front_bumper` frames.
-..    - \+ 20% Print the translation and rotation matrices from the captured transformation and form the transformation matrix [4x4].
-..    - \+ 10% Use the code of Lab 2 to subscribe on the `sensor_msgs/LaserScan` ROS topic of Jackal and obtain the all the ranges that are not ``inf``.
-..    - \+ 20% Transform all the ranges of the `front_laser` frame to the `front_mount` frame.
+..    - \+ 20% Print the translation and rotation matrices from the captured transformation and form the transformation matrix T [4x4].
+..    - \+ 10% Use the code of Lab 2 to subscribe on the `sensor_msgs/LaserScan` ROS topic of Jackal and obtain the all the ranges that are not ``inf``. Use the integrated `calculate_position_of_range` method to obtain the positions of the captures ranges, with respect to the `front_laser` frame. Explain the functionality of describing a capturing range of a LiDAR into a position. Why is it necessary? How does it work?
+..    - \+ 20% Transform all the ranged positions of the `front_laser` frame to the `front_bumper` frame, with the use of transformation matrix T.
 ..    - \+ 20% Teleoperate the robot inside the world and print the transformed `non inf` ranges. Include a screenshot of the terminal including the robot, the laser scan, and the terminal output (print) of the ROS node.
 ..    - \- 15% Penalty applies for each late day (up to two days). 
   
