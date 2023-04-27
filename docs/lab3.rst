@@ -131,7 +131,7 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
    
 ..    - \+ 10% Initialize the world setup as described above, by having the Jackal and the `Stop Sign` placed inside the Gazebo world.
 ..    - \+ 10% Showcase on how you can print the `transformation matrix` between the `front_laser` frame and the frame of the front bumper `front_bumper` by using the ``tf_echo`` command of the terminal.   
-..    - \+ 10% Create a new `ROS node <link>`_ that contains a ROS listener and obtain the transformation the `front_laser` and the `front_bumper` frames.
+..    - \+ 10% Create a new `ROS node <https://github.com/UCR-Robotics/ee106/blob/main/scripts/rangescheck_jackal.py>`_ that contains a ROS listener and obtain the transformation the `front_laser` and the `front_bumper` frames.
 ..    - \+ 20% Print the translation and rotation matrices from the captured transformation and form the transformation matrix T [4x4].
 ..    - \+ 10% Use the code of Lab 2 to subscribe on the `sensor_msgs/LaserScan` ROS topic of Jackal and obtain the all the ranges that are not ``inf``. Use the integrated `calculate_position_of_range` method to obtain the positions of the captures ranges, with respect to the `front_laser` frame. Explain the functionality of describing a capturing range of a LiDAR into a position. Why is it necessary? How does it work?
 ..    - \+ 20% Transform all the ranged positions of the `front_laser` frame to the `front_bumper` frame, with the use of transformation matrix T.

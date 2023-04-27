@@ -2,6 +2,7 @@
 
 import rospy
 import sys
+import numpy as np
 #
 # Add code here to import the sensor_msgs/LaserScan and std_msgs/String message...
 #
@@ -24,6 +25,19 @@ class ranges_check:
     # Publish the String through the created ROS publisher variable...
     #
 
+  # calculation of the position of the range measurement with respect to the LiDAR frame
+  def calculate_position_of_range(self, range, idx, angle_increment, angle_min):
+    
+    if str(range)=="inf":
+          rospy.loginfo("The provided range is infinite!")
+          return -1
+          
+    theta = idx * angle_increment + angle_min
+    x = range * np.cos(theta)
+    y = range * np.sin(theta)
+    
+    return x,y
+    
 
     
 def main(args):
