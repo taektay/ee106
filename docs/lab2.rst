@@ -101,7 +101,7 @@ In order to start the Gazebo simulator with an empty world, you can execute,
 
 .. code-block:: bash
 
-  roslaunch gazero_ros empty_world.launch
+  roslaunch gazebo_ros empty_world.launch
 
 To properly exit or terminate Gazebo you should use the window terminating button. In many cases, such as closing abruptly the terminal or if the Gazebo is not responding, you can terminate it by executing in a new terminal, 
 
@@ -171,7 +171,7 @@ Jackal Control inside the Gazebo World
 ----------
 As we have completed the above steps, to spawn the simualted Jackal inside the Gazebo world we execute in separate terminals the below commands in the following order,
 
-#. roslaunch gazero_ros empty_world.launch
+#. roslaunch gazebo_ros empty_world.launch
 #. roslaunch ee106s23 jackal.launch
 #. rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
