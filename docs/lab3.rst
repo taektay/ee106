@@ -87,29 +87,29 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
  rate = rospy.Rate(10.0)
  # the goal of this node is to continously listen to the transformation relation between the base_link and front_laser ROS frames and print the Translation and Rotation of the captured transformation matrix.
  while not rospy.is_shutdown():
- try:
- # capture the tf of the two frames the exact moment of the command execution (rospy.Time(0))
- (trans,rot) = listener.lookupTransform('/base_link', '/front_laser', rospy.Time(0))
- except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
- continue
+    try:
+        # capture the tf of the two frames the exact moment of the command execution (rospy.Time(0))
+        (trans,rot) = listener.lookupTransform('/base_link', '/front_laser', rospy.Time(0))
+    except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
+        continue
 
- # print of the Translation and Rotation information, by demonstrating the Quaternion, Euler, and Rotation Matrix representation of the latter.
- print("The translation is (x,y,z) = " + str(trans))
- print("The rotation (quaternion) is (x,y,z,w) = " + str(rot))
- print("The rotation (euler) is (r,p,y) = " + str(tf.transformations.euler_from_quaternion(rot)))
- rot_mat = tf.transformations.quaternion_matrix(rot)
- print("The rotation (rotation matrix) is = " + str(tf.transformations.quaternion_matrix(rot)))
- 
- # we assume that a Lidar point is detected, w.r.t the Lidar's frame
- laser_point_detected = [1 , 0, 0, 1]
- 
- # initialization of the tf matrix to describe it in the /base_link frame
- rot_mat[0,3] = trans[0]
- rot_mat[1,3] = trans[1]
- rot_mat[2,3] = trans[2]
- print(np.dot(rot_mat , laser_point_detected))
- 
- rate.sleep()
+    # print of the Translation and Rotation information, by demonstrating the Quaternion, Euler, and Rotation Matrix representation of the latter.
+    print("The translation is (x,y,z) = " + str(trans))
+    print("The rotation (quaternion) is (x,y,z,w) = " + str(rot))
+    print("The rotation (euler) is (r,p,y) = " + str(tf.transformations.euler_from_quaternion(rot)))
+    rot_mat = tf.transformations.quaternion_matrix(rot)
+    print("The rotation (rotation matrix) is = " + str(tf.transformations.quaternion_matrix(rot)))
+    
+    # we assume that a Lidar point is detected, w.r.t the Lidar's frame
+    laser_point_detected = [1, 0, 0, 1]
+    
+    # initialization of the tf matrix to describe it in the /base_link frame
+    rot_mat[0,3] = trans[0]
+    rot_mat[1,3] = trans[1]
+    rot_mat[2,3] = trans[2]
+    print(np.dot(rot_mat , laser_point_detected))
+    
+    rate.sleep()
  
  
 Submission
@@ -129,7 +129,7 @@ In this assignment, we will use our obstacle detection behavior (from Lab 2) bas
 
 #. Grading rubric:
  
- - \+ 10% Initialize the world setup as described above, by having the Jackal and the `Stop Sign` placed inside the Gazebo world.
+ - \+ 10% Initialize the world setup as described above, by having the Jackal and the `Stop Sign` placed inside the Gazebo world. Also, create the new `front_bumper` frame, as described above.
  - \+ 10% Showcase how you can print the `transformation matrix` between the `front_laser` frame and the frame of the front bumper `front_bumper` by using the ``tf_echo`` command of the terminal. 
  - \+ 10% Create a new `ROS node <https://github.com/UCR-Robotics/ee106/blob/main/scripts/rangescheck_jackal.py>`_ that contains a ROS listener and obtain the transformation the `front_laser` and the `front_bumper` frames.
  - \+ 20% Print the translation and rotation matrices from the captured transformation and form the transformation matrix T [4x4].
