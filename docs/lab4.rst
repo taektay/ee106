@@ -75,6 +75,7 @@ Installation Steps
 First, we clone and install the turtlebot3 ROS packages in our ROS workspace,
 
   .. code-block:: bash
+
     cd ~/catkin_ws/src/
     git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
     git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations
@@ -88,12 +89,14 @@ Gazebo and Turtlebot3 Simulation
 In order to spawn the Gazebo inside the simulated world, first we define the type of its model (burger, waffle, waffle_pi), and then we execute the ROS launch script,
 
   .. code-block:: bash
+
     export TURTLEBOT3_MODEL=burger
     roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
 
 The turtlebot3 supports teleoperation through `geometry_msgs/Twist` commands, via the ROS topic `rostopic_name`. To use a developed teleoperation script you can execute in a separate terminal,
 
   .. code-block:: bash
+
     rosrun turtlebot3_teleop turtlebot3_teleop_key
 
 Sample Code
@@ -149,11 +152,11 @@ You need to make changes under ``run`` function to complete the square trajector
                 self.rate.sleep()
             """
 
-if __name__ == '__main__':
-    try:
-        tb = Turtlebot()
-    except rospy.ROSInterruptException:
-        rospy.loginfo("Action terminated.")
+    if __name__ == '__main__':
+        try:
+            tb = Turtlebot()
+        except rospy.ROSInterruptException:
+            rospy.loginfo("Action terminated.")
   
 
 Sample Code Explained
