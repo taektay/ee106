@@ -32,6 +32,6 @@ class Turtlebot():
 
 if __name__ == '__main__':
     try:
-        whatever = Turtlebot()
+        tb = Turtlebot()
     except rospy.ROSInterruptException:
         rospy.loginfo("Action terminated.")

@@ -72,7 +72,7 @@ with respect to :math:`W` will be of the from:
 Installation Steps
 ----------------
 
-First, we install the turtlebot3 ROS packages in our ROS workspace,
+First, we clone and install the turtlebot3 ROS packages in our ROS workspace,
 
   .. code-block:: bash
     cd ~/catkin_ws/src/
@@ -82,29 +82,19 @@ First, we install the turtlebot3 ROS packages in our ROS workspace,
 
 and then we build the workspace.
 
-Programming Tips
+Gazebo and Turtlebot3 Simulation
 ----------------
 
-#. We follow ROS conventions to use `SI units <https://en.wikipedia.org/wiki/International_System_of_Units>`_.
-   (i.e. length in meter, time in second, angle in radian). 
-   See ROS Wiki article `REP 103 Standard Units of Measure and Coordinate Conventions 
-   <https://www.ros.org/reps/rep-0103.html>`_ for more information. 
+In order to spawn the Gazebo inside the simulated world, first we define the type of its model (burger, waffle, waffle_pi), and then we execute the ROS launch script,
 
-#. When a new robot is spawned, the forward heading direction is the positive x axis; 
-   the leftward direction is the positive y axis; and by right-hand rule, z axis upward. 
-   This is also specified in `REP 103 <https://www.ros.org/reps/rep-0103.html>`_. 
+  .. code-block:: bash
+    export TURTLEBOT3_MODEL=burger
+    roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
 
-#. In Gazebo, you can use ``Ctrl + R`` to set the robot back to the origin without the need to relaunch.
+The turtlebot3 supports teleoperation through `geometry_msgs/Twist` commands, via the ROS topic `rostopic_name`. To use a developed teleoperation script you can execute in a separate terminal,
 
-#. In this lab, you need to finely tune the parameters for open-loop control. 
-   
-   - Please note that parameters may vary from platform to platform. In other words,
-     the parameters work in your VM may not necessarily work in the cloud server running autograder.
-   - In Gazebo, you can take the visualization as feedback (the grid size of the ground is 1 meter) 
-     to tune the parameters. 
-   - On Gradescope autograder, you can take the evaluation results (visited waypoints) as feedback 
-     to make minor adjustments to the parameters you have already tuned in the VM.
-
+  .. code-block:: bash
+    rosrun turtlebot3_teleop turtlebot3_teleop_key
 
 Sample Code
 -----------
@@ -125,19 +115,46 @@ You need to make changes under ``run`` function to complete the square trajector
 
 - Please copy and paste the following code, then save and close it.
 
-  .. literalinclude:: ../src/open_loop.py
-    :language: python
+  .. code-block:: python
 
-.. note::
+    #!/usr/bin/env python
 
-  Recall in Lab 1 that you need to first launch your Turtlebot robot in Gazebo on a terminal
-  before sending any commands to it.
+    import rospy
+    from geometry_msgs.msg import Twist
+    from math import pi
+
+    class Turtlebot():
+        def __init__(self):
+            rospy.init_node("turtlebot_move")
+            rospy.loginfo("Press Ctrl + C to terminate")
+            self.vel_pub = rospy.Publisher("cmd_vel_mux/input/navi", Twist, queue_size=10)
+            self.rate = rospy.Rate(10)
+            self.run()
+
+
+        def run(self):
+            vel = Twist()
+            vel.linear.x = 0.5
+            vel.angular.z = 0
+            #while not rospy.is_shutdown():  # uncomment to use while loop
+            for i in range(50):
+                self.vel_pub.publish(vel)
+                self.rate.sleep()
+            """   
+            vel.linear.x = 0
+            vel.angular.z = 0.05
+            #while not rospy.is_shutdown():  # uncomment to use while loop
+            for i in range(50):
+                self.vel_pub.publish(vel)
+                self.rate.sleep()
+            """
+
+if __name__ == '__main__':
+    try:
+        tb = Turtlebot()
+    except rospy.ROSInterruptException:
+        rospy.loginfo("Action terminated.")
   
-  .. code-block:: bash
-    export TURTLEBOT3_MODEL=burger
-    roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
-
-and in a new terminal you can execute the teleoperation ROS node,
 
 Sample Code Explained
 ---------------------
@@ -178,7 +195,7 @@ Sample Code Explained
   from another member function. 
 
 - In the following code structure, we first define a *class* named ``Turtlebot``, and then create
-  an *instance* (*object*) called ``whatever`` in the Python main function.
+  an *instance* (*object*) called ``tb`` in the Python main function.
   The Python program will start running from the line right after ``if __name__ == '__main__':``.
   However, to create a new instance, the program needs to run ``__init__`` function for once 
   (this is a function that every *class* must have for the initialization process).
@@ -289,6 +306,29 @@ Sample Code Explained
 
     while not rospy.is_shutdown():
         pass
+
+Programming Tips
+----------------
+
+#. We follow ROS conventions to use `SI units <https://en.wikipedia.org/wiki/International_System_of_Units>`_.
+   (i.e. length in meter, time in second, angle in radian). 
+   See ROS Wiki article `REP 103 Standard Units of Measure and Coordinate Conventions 
+   <https://www.ros.org/reps/rep-0103.html>`_ for more information. 
+
+#. When a new robot is spawned, the forward heading direction is the positive x axis; 
+   the leftward direction is the positive y axis; and by right-hand rule, z axis upward. 
+   This is also specified in `REP 103 <https://www.ros.org/reps/rep-0103.html>`_. 
+
+#. In Gazebo, you can use ``Ctrl + R`` to set the robot back to the origin without the need to relaunch.
+
+#. In this lab, you need to finely tune the parameters for open-loop control. 
+   
+   - Please note that parameters may vary from platform to platform. In other words,
+     the parameters work in your VM may not necessarily work in the cloud server running autograder.
+   - In Gazebo, you can take the visualization as feedback (the grid size of the ground is 1 meter) 
+     to tune the parameters. 
+   - On Gradescope autograder, you can take the evaluation results (visited waypoints) as feedback 
+     to make minor adjustments to the parameters you have already tuned in the VM.
 
 
 Reading Materials
