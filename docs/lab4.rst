@@ -130,7 +130,7 @@ You need to make changes under ``run`` function to complete the square trajector
         def __init__(self):
             rospy.init_node("turtlebot_move")
             rospy.loginfo("Press Ctrl + C to terminate")
-            self.vel_pub = rospy.Publisher("cmd_vel_mux/input/navi", Twist, queue_size=10)
+            self.vel_pub = rospy.Publisher("", Twist, queue_size=10)
             self.rate = rospy.Rate(10)
             self.run()
 
@@ -257,12 +257,12 @@ Sample Code Explained
   
 - On the robot side, there is a ROS Subscriber waiting for velocity commands.
   What we need to do in this script is to create a ROS Publisher to send commands.
-  The required arguments are the topic name ``cmd_vel_mux/input/navi``, 
+  The required arguments are the topic name ````, 
   the message type ``Twist``, and the queue size ``10``.
 
   .. code-block:: python
 
-    self.vel_pub = rospy.Publisher("cmd_vel_mux/input/navi", Twist, queue_size=10)
+    self.vel_pub = rospy.Publisher("", Twist, queue_size=10)
 
 - The following question is how frequently we should send velocity commands.
   Note that the robot will stop if no velocity command is received after a while,
