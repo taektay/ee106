@@ -4,7 +4,7 @@ Lab 4: Open Loop Control
 Overview
 --------
 
-In this lab, we are going to learn how to write a Python script to control the Turtlebot3 robot.Specifically, the task is to make the robot move in a square shape using open-loop control 
+In this lab, we are going to learn how to write a Python script to control the Turtlebot3 robot. Specifically, the task is to make the robot move in a square shape using open-loop control 
 (i.e. sending commands only; no feedback). 
 The waypoints to visit are [4, 0], [4, 4], [0, 4] and [0, 0]. 
 In other words, the robot should move forward 4 meters, turn left 90 degrees, 
@@ -72,8 +72,15 @@ with respect to :math:`W` will be of the from:
 Installation Steps
 ----------------
 
-https://github.com/ROBOTIS-GIT/turtlebot3.git
-https://github.com/ROBOTIS-GIT/turtlebot3_simulations
+First, we install the turtlebot3 ROS packages in our ROS workspace,
+
+  .. code-block:: bash
+    cd ~/catkin_ws/src/
+    git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
+    git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations
+    cd ../
+
+and then we build the workspace.
 
 Programming Tips
 ----------------
@@ -127,38 +134,10 @@ You need to make changes under ``run`` function to complete the square trajector
   before sending any commands to it.
   
   .. code-block:: bash
+    export TURTLEBOT3_MODEL=burger
+    roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
 
-    roslaunch ee106s23 gazebo.launch
-
-- Back to the terminal, you can run it in two ways. 
-  One is to feed this script as input to the Python program in Linux,
-  as shown below.
-    
-  .. code-block:: bash
-
-    python open_loop.py
-
-- The other way is to run it as a regular executable in Linux. In this case,
-  you need to first grant the execution permission to this Python script.
-  This step only needs to be run once.
-
-  .. code-block:: bash
-
-    chmod +x open_loop.py
-
-- Now you can see that this file is in green color when you ``ls`` the current directory in the terminal.
-  This is how Linux terminal distinguishes executable (in green or highlight) and non-executable (in white).
-
-  .. code-block:: bash
-
-    ls
-
-- Then you can run it by command
-
-  .. code-block:: bash
-
-    ./open_loop.py
-
+and in a new terminal you can execute the teleoperation ROS node,
 
 Sample Code Explained
 ---------------------
