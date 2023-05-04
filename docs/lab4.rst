@@ -93,7 +93,7 @@ In order to spawn the Gazebo inside the simulated world, first we define the typ
     export TURTLEBOT3_MODEL=burger
     roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
 
-The turtlebot3 supports teleoperation through `geometry_msgs/Twist` commands, via the ROS topic `rostopic_name`. To use a developed teleoperation script you can execute in a separate terminal,
+The turtlebot3 supports teleoperation through `geometry_msgs/Twist` commands, via the corresponding ROS topic. To use a developed teleoperation script you can execute in a separate terminal,
 
   .. code-block:: bash
 
@@ -120,7 +120,7 @@ You need to make changes under ``run`` function to complete the square trajector
 
   .. code-block:: python
 
-    #!/usr/bin/env python
+    #!/usr/bin/env python3
 
     import rospy
     from geometry_msgs.msg import Twist
@@ -257,7 +257,7 @@ Sample Code Explained
   
 - On the robot side, there is a ROS Subscriber waiting for velocity commands.
   What we need to do in this script is to create a ROS Publisher to send commands.
-  The required arguments are the topic name ````, 
+  The required arguments are the topic name, 
   the message type ``Twist``, and the queue size ``10``.
 
   .. code-block:: python
@@ -361,17 +361,12 @@ ROS Conventions
 
 - `REP 105 Coordinate Frames for Mobile Platforms <https://www.ros.org/reps/rep-0105.html>`_
 
-
-
-
 .. Submission
 .. ----------
 
 .. #. Submission: individual submission via Gradescope
 
-.. #. Demo: required during the lab session (will use autograder; see below)
-
-.. #. Due time: 5:00pm, Oct 14, Friday
+.. #. Due time: 11:59pm, May 14, Sunday
 
 .. #. Files to submit: (please use exactly the same filename; case sensitive)
 

@@ -43,8 +43,8 @@ class ranges_check:
     
 def main(args):
     ## initialization of the class object
-    ic = ranges_check()
     rospy.init_node('ranges_check', anonymous=True)
+    ic = ranges_check()
     try:
         rospy.spin()
     except KeyboardInterrupt:
