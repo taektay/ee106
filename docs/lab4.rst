@@ -370,7 +370,7 @@ Submission
 
 #. Files to submit: (please use exactly the same filename; case sensitive)
 
-   - lab2_report.pdf
+   - lab4_report.pdf
    - open_loop.py
 
 #. Grading rubric:
