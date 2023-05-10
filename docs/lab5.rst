@@ -30,11 +30,11 @@ Additionally, ``rosservice`` bash command can be used in the same way as the ``r
 
     rosservice list
 
-The `show` argument is used to show 
+The `info` argument is used to show information about the selected ROS Service, i.e `add_two_ints`.
 
 .. code-block:: bash
 
-    rosservice echo rospy_tutorials/AddTwoInts
+    rosservice info add_two_ints
 
 To preview the full use of the ``rosservice`` command you can use the ``help`` argument, such as,
 
@@ -42,13 +42,11 @@ To preview the full use of the ``rosservice`` command you can use the ``help`` a
 
     rosservice help
 
-Notably, the ``rossrv`` bash command is used to 
-
- the  available ROS Services can b
+Notably, the ``rossrv`` bash command is used to display information about ROS Service types, such as,
 
 .. code-block:: bash
 
-    rossrv show 
+    rossrv show rospy_tutorials/AddTwoInts
     
 
 ROS Service Use Example
@@ -76,18 +74,18 @@ Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. Firs
 
         content = "welcome to the Robotics Lab " + str(header.stamp)
         pub.publish(content)
-        rate.sleep()
 
-    def service_caller():
-            
-            rospy.wait_for_service('add_two_ints')
-            
-            add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
-            try:
-                resp1 = add_two_ints(2, 1)
-                print(resp1)
-            except rospy.ServiceException as exc:
-                print("Service did not process request: " + str(exc))
+        # Call of the ROS Service 'add_two_ints'
+        rospy.wait_for_service('add_two_ints')
+        
+        add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
+        try:
+            response_msg = add_two_ints(2, 1)
+            print(response_msg)
+        except rospy.ServiceException as exc:
+            print("Service did not process request: " + str(exc))
+
+        rate.sleep()
 
 
     if __name__ == '__main__':
@@ -97,7 +95,7 @@ Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. Firs
         except rospy.ROSInterruptException:
             pass
 
-and 
+and the ``node_b``,
 
 .. code-block:: python
 
@@ -110,6 +108,7 @@ and
     def callback(data):
         rospy.loginfo(data.data)
 
+    # ROS Service function to be executed when the service is called. The return will provide the response of the service to the caller.
     def add_two_ints(req):
         print(req)
         return (req.a + req.b)
@@ -117,13 +116,14 @@ and
     def listener():
         rospy.init_node('node_b')
         rospy.Subscriber('chatter', String, callback)
+        # Initialization of the ROS Service
         rospy.Service('add_two_ints', AddTwoInts, add_two_ints)
         rospy.spin()
 
     if __name__ == '__main__':
         listener()
 
-Creation of new ROS Service Type
-----------
+.. Creation of new ROS Service Type
+.. ----------
 
 
