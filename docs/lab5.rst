@@ -152,6 +152,35 @@ To use the new ROS Service we have to build the workspace, but first, we need to
 
 As we have applied all the changes, we build the workspace and we can use our new ROS Service in any ROS Node, as the package dependencies are satisfied.
 
+Reading Materials
+-----------------
 
+ROS Services
+~~~~~~~~~~~~~~~
+
+- `ROS Services, Types, Tools (Python) <http://wiki.ros.org/rospy/Overview/Services>`_
+
+- `Custom ROS Services and Service Description Specification <http://wiki.ros.org/srv>`_
+
+.. Submission
+.. ----------
+
+.. #. Submission: individual submission via Gradescope
+
+.. #. Due time: 11:59pm, May 23, Tuesday
+
+.. #. Files to submit: 
+
+..    - lab5_report.pdf including the developed ROS Node
+
+.. #. Grading rubric:
+
+..    + \+ 10% Create a new folder in ``ee106s23`` ROS package, by using the name ``gazebo_model``. Copy the `Gazebo world <>`_ and copy it in the ``ee106s23/gazebo_model/`` folder.
+..    + \+ 10% Create the above ROS launch file and copy it inside the ``ee106s23/launch/``, under the name of ``lab5_submission.launch``. Execute the launch file in a separate terminal. As this is completed, launch the ``turtlebot3.launch`` file and showcase the spawn of the robot inside the created world.
+
+..    + \+ 40%  The robot can visit all four vertices of the square trajectory (error < 1.0m). 
+..      Partial credits will be given according to the number of vertices visited.
+..    + \+ 10%  The script can complete the task on time and exit gracefully.
+..    + \- 15%  Penalty applies for each late day. 
 
 
