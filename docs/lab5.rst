@@ -56,7 +56,7 @@ Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. Firs
 
 
 .. code-block:: python  
- :emphasize-lines: 5,20,21,22,23,24,25
+ :emphasize-lines: 5,20,21,22,23,24,25,26,27
  
  #!/usr/bin/env python3
 
@@ -99,6 +99,7 @@ Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. Firs
 and the ``node_b``,
 
 .. code-block:: python
+ :emphasize-lines: 5,13,14,15,21
 
  #!/usr/bin/env python3
 
@@ -124,6 +125,7 @@ and the ``node_b``,
  if __name__ == '__main__':
     listener()
 
+As it is evident, the highlighted code are new additions in our ROS publisher-subscriber nodes, to integrate the creation (`node_b`) and the call (`node_a`) of the ROS Service.
 
 Creation of new ROS Service Type
 ----------
