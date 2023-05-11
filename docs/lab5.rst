@@ -55,7 +55,8 @@ ROS Service Use Example
 Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. First, create a new ROS Publisher and Subscriber node, as followed on our `ROS tutorial <https://ucr-robotics.readthedocs.io/en/latest/intro_ros.html>`_ and name them `node_a.py` and `node_b.py` under the ``ee106s23`` ROS package. In addition, modify both the ``node_a`` and ``node_b`` to the following,
 
 .. code-block:: python
-
+   
+ :emphasize-lines: 8,10,16
  #!/usr/bin/env python3
 
  import rospy
