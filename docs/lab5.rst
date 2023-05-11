@@ -9,7 +9,7 @@ In this lab, we will expand our knowledge of working with ROS by using ROS Servi
 ROS Services: Request and Response
 ----------
 
-As seen in the previous labs, ROS Topics are used to stream data between ROS Nodes, to help in their communication and exchange of information to perform a more complex task. ROS Services represent also a way of communication within ROS Nodes, but they are mainly based on request and reply interactions. 
+As seen in the previous labs, ROS Topics are used to stream data between ROS Nodes to help in their communication and exchange of information to perform a more complex task. ROS Services represent also a way of communication within ROS Nodes, but they are mainly based on request and response interactions. 
 
 Specifically, a ROS Service is described by specific data fields, as a type of a ROS Topic, however, there is a distinction between request and response fields that use different parameters. For example, the `rospy_tutorials/AddTwoInts` is a ROS Service that has been created by ROS Python online tutorials to demonstrate the ROS service request of adding two different numbers. 
 
@@ -21,11 +21,10 @@ Specifically, a ROS Service is described by specific data fields, as a type of a
  int64 sum
 
 
-Initially, the separation line `--` separates the request and response parameters. In our example, the `int64` ``a`` and `int64` ``b`` are the parameters of the request of the ROS service, that need to be set before the service call. 
-With the service call, the ROS node that will implement the ROS Service callback function will be triggered and will fill up the response parameters, which will be 
-As it is obvious, the request and response variable can be more than one, according to our request and response variable need.
+Initially, the separation line `--` separates the request and response parameters. In our example, the `int64` ``a`` and `int64` ``b`` are the parameters of the request of the ROS service, that need to be set before the service call. Thus, with the service call, the ROS node that has initialized the ROS Service triggers its function and form the response variables, which will be returned. On the service caller side, the caller node will get back the output (response) of the ROS Service call and will store it locally to be accessed.
+As it is obvious, the request and response variables can be more than one, depending on the used ROS Service.
 
-Additionally, ``rosservice`` bash command can be used in the same way as the ``rostopic`` command, to preview further information about the available ROS Services. For example, argument ``list`` is used to list all the available ROS Services,
+The ``rosservice`` bash command can be used in the same way as the ``rostopic`` command, to preview further information about the available ROS Services. For example, the argument ``list`` is used to list all the available ROS Services,
 
 .. code-block:: bash
 
@@ -53,7 +52,7 @@ Notably, the ``rossrv`` bash command is used to display information about ROS Se
 ROS Service Use Example
 ----------
 
-Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. First, create a new ROS Publisher and Subscriber node, as followed on our `ROS tutorial`_, and name them `node_a.py` and `node_b.py` under the ``ee106s23`` ROS package. In addition, modify both the ``node_a`` and ``node_b`` to the following,
+Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. First, create a new ROS Publisher and Subscriber node, as followed on our `ROS tutorial <https://ucr-robotics.readthedocs.io/en/latest/intro_ros.html>`_ and name them `node_a.py` and `node_b.py` under the ``ee106s23`` ROS package. In addition, modify both the ``node_a`` and ``node_b`` to the following,
 
 .. code-block:: python
 
@@ -147,7 +146,7 @@ To use the new ROS Service we have to build the workspace, but first, we need to
     MyService.srv
  )
 
-As we have applied all the changes, we build the workspace and we can use our new ROS Service in any ROS Node, as the package dependencies are fulfilled.
+As we have applied all the changes, we build the workspace and we can use our new ROS Service in any ROS Node, as the package dependencies are satisfied.
 
 
 
