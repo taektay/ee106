@@ -66,35 +66,35 @@ Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. Firs
 
  def talker():
 
- pub = rospy.Publisher('chatter', String, queue_size = 10)
- rate = rospy.Rate(10) # 10hz
+    pub = rospy.Publisher('chatter', String, queue_size = 10)
+    rate = rospy.Rate(10) # 10hz
 
  while not rospy.is_shutdown():
- header = Header()
- header.stamp = rospy.Time.now()
+    header = Header()
+    header.stamp = rospy.Time.now()
 
- content = "welcome to the Robotics Lab " + str(header.stamp)
- pub.publish(content)
+    content = "welcome to the Robotics Lab " + str(header.stamp)
+    pub.publish(content)
 
- # Call of the ROS Service 'add_two_ints'
- rospy.wait_for_service('add_two_ints')
- 
- add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
- try:
- response_msg = add_two_ints(2, 1)
- print(response_msg)
- except rospy.ServiceException as exc:
- print("Service did not process request: " + str(exc))
+    # Call of the ROS Service 'add_two_ints'
+    rospy.wait_for_service('add_two_ints')
+    
+    add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
+    try:
+        response_msg = add_two_ints(2, 1)
+        print(response_msg)
+    except rospy.ServiceException as exc:
+        print("Service did not process request: " + str(exc))
 
- rate.sleep()
+    rate.sleep()
 
 
  if __name__ == '__main__':
- try:
- rospy.init_node('node_a')
- service_caller()
- except rospy.ROSInterruptException:
- pass
+    try:
+        rospy.init_node('node_a')
+        talker()
+    except rospy.ROSInterruptException:
+        pass
 
 and the ``node_b``,
 
@@ -107,22 +107,22 @@ and the ``node_b``,
  from rospy_tutorials.srv import AddTwoInts
 
  def callback(data):
- rospy.loginfo(data.data)
+    rospy.loginfo(data.data)
 
  # ROS Service function to be executed when the service is called. The return will provide the response of the service to the caller.
  def add_two_ints(req):
- print(req)
- return (req.a + req.b)
+    print(req)
+    return (req.a + req.b)
  
  def listener():
- rospy.init_node('node_b')
- rospy.Subscriber('chatter', String, callback)
- # Initialization of the ROS Service
- rospy.Service('add_two_ints', AddTwoInts, add_two_ints)
- rospy.spin()
+    rospy.init_node('node_b')
+    rospy.Subscriber('chatter', String, callback)
+    # Initialization of the ROS Service
+    rospy.Service('add_two_ints', AddTwoInts, add_two_ints)
+    rospy.spin()
 
  if __name__ == '__main__':
- listener()
+    listener()
 
 
 Creation of new ROS Service Type
@@ -145,7 +145,7 @@ To use the new ROS Service we have to build the workspace, but first, we need to
 
  # Declare the service files to be built
  add_service_files(FILES
- MyService.srv
+    MyService.srv
  )
 
 As we have applied all the changes, we build the workspace and we can use our new ROS Service in any ROS Node, as the package dependencies are fulfilled.

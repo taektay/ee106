@@ -78,9 +78,6 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
  import geometry_msgs.msg
  import numpy as np
 
- if __name__ == '__main__':
- rospy.init_node('tf_listener')
-
  # initialization of the ROS tf listener
  listener = tf.TransformListener()
 
