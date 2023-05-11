@@ -61,7 +61,6 @@ Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. Firs
 
  import rospy
  from std_msgs.msg import String, Header
- from std_srvs.srv import SetBool
  from rospy_tutorials.srv import AddTwoInts
 
  def talker():

@@ -210,7 +210,7 @@ In this lab's submission, we will develop a ROS node that will receive the simul
    - \+ 20% Use the ROS publisher to publish a `std_msgs/String` through `jackal_robot_status` ROS topic, including the message,
       - ``critical`` if any of the `ranges` is smaller than `0.2m`
       - ``major`` if any of the `ranges` is smaller than `0.5m` 
-      - ``minor`` if all `ranges > 1.0m` 
+      - ``minor`` if all `ranges > 0.5m` 
    - \+ 20% Demonstrate the ROS node functionality, by teleoperating the Jackal inside the Gazebo world and showcasing the transmitted ROS topic messages for each of the three cases. Specifically, include a screenshot of the published messages of `jackal_robot_status` by using ``rostopic`` in a new terminal and take a photo of the robot inside the Gazebo at the corresponding moment by showing the surrounding obstacles, for each of the three cases.
    - \+ 10% Include a screenshot of the RViz while using the Jackal in the Gazebo world, having the RobotModel, TF, and the LiDAR visualization enabled. 
    - \- 15% Penalty applies for each late day (up to two days). 
@@ -242,4 +242,66 @@ ROS Conventions
   <https://www.ros.org/reps/rep-0103.html>`_
 
 - `REP 105 Coordinate Frames for Mobile Platforms <https://www.ros.org/reps/rep-0105.html>`_
+
+
+
+Solution Approach for Lab 2 Assignment
+-----------------
+
+
+.. code-block:: python
+
+    #!/usr/bin/env python3
+
+    import rospy
+    import sys
+    import numpy as np
+    from sensor_msgs.msg import LaserScan
+    from std_msgs.msg import String
+
+    class ranges_check:
+        
+      def __init__(self):
+        #
+        # Initialize the ROS publisher and subscriber. Use "self." to initialize the publisher and subscriber variables, to be able to access them through all class methods. The function "callback" will be the callback of the ROS subscriber. 
+        #
+        rospy.Subcriber("front/scan", LidarScan, self.callback)
+        self.pub = rospy.Publisher("jackal_robot_status", String, queue_size=10)
+
+      def callback(self,data):
+
+        # Add code here to iterate over all values in LaserScan ranges[] field and check the criticality of the robot position. Additionally, initialize a String variable that will contain the criticality message.
+        #
+        
+        for r in data.ranges:
+          if str(r)=="inf":
+            continue
+
+          # else check criticality
+
+          str_msg = String()
+          if r < 0.2:
+            str_msg.data = "critical"
+          elif r < 0.5:
+            str_msg.data = "major"
+          else:
+            str_msg.data = "minor"
+        
+        # Publish the String through the created ROS publisher variable...
+        #
+        
+        self.pub.publish(str_msg.data)
+        
+    def main(args):
+        ## initialization of the class object
+        rospy.init_node('ranges_check', anonymous=True)
+        ic = ranges_check()
+        try:
+            rospy.spin()
+        except KeyboardInterrupt:
+            print("Shutting down")
+            
+    if __name__ == '__main__':
+        main(sys.argv)
+
 
