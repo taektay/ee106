@@ -21,7 +21,7 @@ Specifically, a ROS Service is described by specific data fields, as a type of a
  int64 sum
 
 
-Initially, the separation line `--` separates the request and response parameters. In our example, the `int64` ``a`` and `int64` ``b`` are the parameters of the request of the ROS service, that need to be set before the service call. Thus, with the service call, the ROS node that has initialized the ROS Service triggers its function and form the response variables, which will be returned. On the service caller side, the caller node will get back the output (response) of the ROS Service call and will store it locally to be accessed.
+Initially, the separation line `--` separates the request and response parameters. In our example, the `int64` ``a`` and `int64` ``b`` are the parameters of the request of the ROS service, that need to be set before the service call. Thus, with the service call, the ROS node that has initialized the ROS Service triggers its function and forms the response variables, which will be returned. On the service caller side, the caller node will get back the output (response) of the ROS Service call and will store it locally to be accessed.
 As it is obvious, the request and response variables can be more than one, depending on the used ROS Service.
 
 The ``rosservice`` bash command can be used in the same way as the ``rostopic`` command, to preview further information about the available ROS Services. For example, the argument ``list`` is used to list all the available ROS Services,
@@ -30,7 +30,7 @@ The ``rosservice`` bash command can be used in the same way as the ``rostopic`` 
 
  rosservice list
 
-The `info` argument is used to show information about the selected ROS Service, i.e `add_two_ints`.
+The `info` argument is used to show information about the selected ROS Service, i.e. `add_two_ints`.
 
 .. code-block:: bash
 
@@ -99,7 +99,7 @@ Let's see an example by using the `rospy_tutorials/AddTwoInts` ROS Service. Firs
 and the ``node_b``,
 
 .. code-block:: python
- :emphasize-lines: 5,13,14,15,21
+ :emphasize-lines: 5,11,12,13,19
 
  #!/usr/bin/env python3
 
@@ -130,7 +130,7 @@ As it is evident, the highlighted code are new additions in our ROS publisher-su
 Creation of new ROS Service Type
 ----------
 
-For the generation of the new ROS Service type, initially, we create a new folder ``srv`` inside the `ee106s23` ROS package. Then, we create a ``NewService.srv`` file, which will contain the main request/response data structure,
+For the generation of the new ROS Service type, initially, we create a new folder ``srv`` inside the `ee106s23` ROS package. Then, we create a ``ee106s23_service.srv`` file, which will contain the main request/response data structure,
 
 .. code-block:: python
 
@@ -147,7 +147,7 @@ To use the new ROS Service we have to build the workspace, but first, we need to
 
  # Declare the service files to be built
  add_service_files(FILES
-    MyService.srv
+    ee106s23_service.srv
  )
 
 As we have applied all the changes, we build the workspace and we can use our new ROS Service in any ROS Node, as the package dependencies are satisfied.
