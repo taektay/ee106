@@ -175,12 +175,13 @@ ROS Services
 
 .. #. Grading rubric:
 
-..    + \+ 10% Create a new folder in ``ee106s23`` ROS package, by using the name ``gazebo_model``. Copy the `Gazebo world <>`_ and copy it in the ``ee106s23/gazebo_model/`` folder.
-..    + \+ 10% Create the above ROS launch file and copy it inside the ``ee106s23/launch/``, under the name of ``lab5_submission.launch``. Execute the launch file in a separate terminal. As this is completed, launch the ``turtlebot3.launch`` file and showcase the spawn of the robot inside the created world.
-
-..    + \+ 40%  The robot can visit all four vertices of the square trajectory (error < 1.0m). 
-..      Partial credits will be given according to the number of vertices visited.
-..    + \+ 10%  The script can complete the task on time and exit gracefully.
+..    + \+ 10% Create a new folder in ``ee106s23`` ROS package, by using the name ``worlds``. Download the `Gazebo world <>`_ and copy it inside the ``ee106s23/worlds/`` folder.
+..    + \+ 10% Create the above ROS launch file and copy it inside the ``ee106s23/launch/``, under the name of ``lab5_submission.launch``. Execute the launch file in a separate terminal. As this is completed, launch the ``turtlebot3.launch`` file and showcase the spawn of the robot inside the created world. 
+..    + \+ 10% Broadcast 3 new ROS frames (similar to Lab 3) that will be placed on the front, left, and right bumper. Please ensure that the frames are properly placed at the correct positions, by checking also through RViz.
+..    + \+ 10% Create a ROS Node that will contain a ROS subscriber to the robot's onboard LiDAR module, a ROS publisher on the ``cmd_vel`` ROS Topic of type `Twist`.
+..    + \+ 10% Include 3 ROS listeners of capturing the transformation of the LiDAR module and the three bumper frames of the robot.
+..    + \+ Transform all `non-inf` ranging measurements to all the 3 bumper coordinate systems and form the criticality levels for each of them
+..    + \+ 10% Develop the left wall-following technique. Hint: The robot goes fowrward as long as the distance of the left bumper is within a fixed distance (i.e. 0.3 < r < 0.5). In case the robot gets in a smaller distance than the minimum distance, it has to correct its orientation (clockwise rotation) to continue without colliding. In the same sense, if the robot gets further than the maximum distance, it has perform an anti-clockwise rotation to approach more the following left wall. All that time, you need to check that the robot is not approaching the right wall too, by applying the corresponding actions. In case the robot reaches a spot where front distance is closer than a specific range and the left wall 
 ..    + \- 15%  Penalty applies for each late day. 
 
 
