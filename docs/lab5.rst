@@ -185,25 +185,25 @@ Submission
 
  .. code-block:: python
 
- <launch>
- <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
- <arg name="x_pos" default="0.0"/>
- <arg name="y_pos" default="0.0"/>
- <arg name="z_pos" default="0.0"/>
+   <launch>
+   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+   <arg name="x_pos" default="0.0"/>
+   <arg name="y_pos" default="0.0"/>
+   <arg name="z_pos" default="0.0"/>
 
- <include file="$(find gazebo_ros)/launch/empty_world.launch">
- <arg name="world_name" value="$(find ee106s23)/worlds/straight_line.world"/>
- <arg name="paused" value="false"/>
- <arg name="use_sim_time" value="true"/>
- <arg name="gui" value="true"/>
- <arg name="headless" value="false"/>
- <arg name="debug" value="false"/>
- </include>
+   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+   <arg name="world_name" value="$(find ee106s23)/worlds/straight_line.world"/>
+   <arg name="paused" value="false"/>
+   <arg name="use_sim_time" value="true"/>
+   <arg name="gui" value="true"/>
+   <arg name="headless" value="false"/>
+   <arg name="debug" value="false"/>
+   </include>
 
- <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
- <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
- </launch>
+   <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+   </launch>
 
  + \+ 20% Broadcast the static tranformation between the ``base_footprint`` and ``base_scan`` frame, in the similar way with Lab 3. In specific, the ``base_scan`` is located `20cm` above of ``base_footprint`` and is on the same `x` and `y` position, as well as there is no relative rotation. Also, broadcast 2 new ROS frames that will be placed on the left and right body parts of the robot at the same `z` level as the ``base_scan``. Thus, name these two new frames as ``left_limit`` and ``right_limit`` and broadcast them `7cm` left and right of the ``base_scan`` frame. Similarly, in that case, the new frames follow the same orientation of the ``base_scan`` and are placed on the same `x` and `z` levels. Please ensure that the frames are properly placed at the correct positions, by checking also through RViz.
  + \+ 5% Create a ROS Node that will contain a ROS subscriber to the robot's onboard LiDAR module, a ROS publisher on the ``cmd_vel`` ROS Topic of type `Twist`.
