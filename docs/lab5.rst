@@ -177,8 +177,7 @@ Submission
 
 #. Grading rubric:
 
-   .. image:: ./pics/straight_line_wall_following.png
-      :align: center
+
 
    + \+ 5% Create a new folder in ``ee106s23`` ROS package, by using the name ``worlds``. Download the `Gazebo world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/straight_line.world>`_ and copy it inside the ``ee106s23/worlds/`` folder.
    + \+ 10% Create the below ROS launch file and save it inside the ``ee106s23/launch/``, under the name of ``lab5_turtlebot_world.launch``. Execute the launch file in a separate terminal by running first ``export TURTLEBOT3_MODEL=burger``. 
