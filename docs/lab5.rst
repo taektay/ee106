@@ -1,4 +1,4 @@
-Lab 5: ROS Services, Custom Service Messages, and Overview
+Lab 5: ROS Services, Custom Service Messages, and Wall Following
 ====================
 
 Overview
