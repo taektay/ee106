@@ -209,9 +209,9 @@ Submission
    + \+ 5% Create a ROS Node that will contain a ROS subscriber to the robot's onboard LiDAR module, a ROS publisher on the ``cmd_vel`` ROS Topic of type `Twist`.
    + \+ 10% Include a ROS listener of capturing the transformation of the LiDAR module and the ``left_limit`` frame of the robot.
    + \+ Transform the captured ranging measurements of the left side of the robot (1.52 to 1.62 rad) with respect to the ``left_limit`` frame and find the minimum distance ``min_dist`` from the left side.
-   + \+ 20% By using that information, develop a navigating behavior of the Turtlebot3 to move ``forward`` if the ``min_dist`` is in `[10,20]cm`, move ``forward`` and ``slightly right`` if ``min_dist`` is less than `10cm` (approaching wall), and move ``forward`` and ``slightly left`` if ``min_dist`` is more than `20cm` (leaving the wall behind).
+   + \+ 20% By using that information, develop a navigating behavior of the Turtlebot3 to move ``forward`` if the ``min_dist`` is in `[10,20] cm`, move ``forward`` and ``slightly right`` if ``min_dist`` is less than `10cm` (approaching wall), and move ``forward`` and ``slightly left`` if ``min_dist`` is more than `20cm` (leaving the wall behind).
    + \+ 10% Expand the functionality of this behavior, by adding a check of the front and first range scan (`idx=0`) is less than `30cm`, to detect if the robot reached at the end of the map. 
-   + \+ 20% Record a panoramic video of the resulting left-wall following behavior and include the output of the ROS Node terminal, which will print out the following actions of the robot. Remember that you can always reset the Gazebo world state by pressing ``Ctrl - R`` during your experiments.
+   + \+ 20% Record a panoramic video of the resulting left-wall following behavior and include the output of the ROS Node terminal, which will print out the following actions of the robot. Remember that you can always reset the Gazebo world state by pressing ``Ctrl + R`` during your experiments.
    + \- 15%  Penalty applies for each late day. 
 
 
