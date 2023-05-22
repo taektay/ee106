@@ -16,31 +16,32 @@ To perform the left wall following initially, we have to consider the type of se
 The cases that a robot might experience during its exploration in a maze, by following left wall-following, are depicted below,
 
 .. image:: ./pics/wall_following.png
- :width: 400
+ :width: 600
  :align: center
 
 Initially, as can be seen from the image, every case can be modeled by using two parameters, the `Left Side` and the `Right Side` occupancy. Thus, the robot depending on the values of these two parameters can decide on the next action-move, which can be moving `forward`, `left`, or `right`. These cases can be represented also as the following lookup matrix,
 
-.. list-table:: 
- :align: center
- :widths: 50 50 50
- :header-rows: 1
 
- * - Left Side
- - Right Side
- - Action
- * - Free
- - Free
- - Left
- * - Free
- - Occupied
- - Right 
- * - Occupied
- - Free
- - Forward
- * - Occupied
- - Occupied
- - Right
+.. list-table:: 
+    :align: center
+    :widths: 50 50 50
+    :header-rows: 1
+
+    * - Left Side
+      - Right Side
+      - Action
+    * - Free
+      - Free
+      - Left
+    * - Free
+      - Occupied
+      - Right 
+    * - Occupied
+      - Free
+      - Forward
+    * - Occupied
+      - Occupied
+      - Right
 
 
 
@@ -60,7 +61,7 @@ Submission
 
 #. Group Submission (2-people)
 
-#. Due time: 11:59, June 4, Sunday
+#. Due time: 11:59pm, June 4, Sunday
 
 #. Files to submit:
 
