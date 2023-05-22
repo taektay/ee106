@@ -10,6 +10,7 @@ Finite State Machine (FSM)
 --------
 
 .. image:: ./pics/fsm.png
+    :width: 400
     :align: center
 
 .. image:: ./pics/complex_case.png
