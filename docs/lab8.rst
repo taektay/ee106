@@ -7,64 +7,49 @@ Overview
 In this lab, we will put everything together and apply what we have learned so far in ROS on the real Turtlebot3 Burger. 
 The task is to use Turtlebot3 and perform left-wall following in a real-world environment without colliding with obstacles or walls and finally kicking the ball at the endpoint of the map.
 
-The implemented ROS node of Lab 7 will be used with proper modifications, to run onboard the Turtlebot3 to complete the navigation scenario. In the end, a demonstration of the complete wall-following behavior will be performed for the system's evaluation. Each team will have one Turtlebot3 to work with and do the demonstration.
+The implemented ROS node of `Lab 7 <https://ucr-ee106.readthedocs.io/en/latest/lab7.html#>`_ will be used with proper modifications, to run onboard the Turtlebot3 to complete the navigation scenario. In the end, a demonstration of the complete wall-following behavior will be performed for the system's evaluation. Each team will have one Turtlebot3 to work with and do the demonstration.
 
 **A successful demo on Gazebo is required before any 
 implementation on the real robot.**
 
-Connection with the robot
+Connection with the robot and roslaunch
 ----------
 
-As we saw in Lab 1, one of the ways to connect to the robot is via Secure SHell (SSH). Thus, in this case, you need first to connect to the local Wi-Fi router (for further information please ask the Teaching Assistant) and then to the robot. To connect to the robot, you can open an SSH connection terminal, 
+As we saw in the first labs, one of the ways to connect to the robot is via Secure SHell (SSH). Thus, in this case, you need first to connect to the local Wi-Fi router (for further information please ask the Teaching Assistant) and then to the robot. To connect to the robot, you can open an SSH connection terminal, 
 
   .. code-block:: bash
 
-    ssh X@10.40.2.21
+    ssh pi@192.168.0.X
 
-and provide the password `X`. Since you are connected to the remote shell of the robot, you can navigate in the `~/catkin_ws` folder of its ROS workspace. To execute your locally saved ROS node, you need first to secure copy (`scp`) it in the robot's directory and then execute it. Thus, open a terminal in your VMware and execute,
+where `X` is the final digits of the robot's IP. Since you are connected to the remote shell of the robot, you can navigate in the `~/catkin_ws` folder of its ROS workspace. 
+
+First we need to enable the robot `bringup` ROS node. Thus, execute in the above terminal, 
 
   .. code-block:: bash
 
-    scp `path_to_your_script` burger@10.40.2.21:/home/burger/catkin_ws/src/ee106s23/scripts/left_wall_following.py
+    roslaunch turtlebot3_bringup turtlebot3_robot. launch
 
-Then, on the terminal that you have access on the burger (SSH), navigate to the `ee106s23` ROS package, and provide permission on the copied ROS node with the command `chmod +x left_wall_following.py`. To execute your ROS node on the Turtlebot3, perform the following command on the SSH terminal,
+To execute your locally saved ROS node, you need first to secure copy (`scp`) it in the robot's directory and then execute it. So, open a terminal in your VMware and execute,
+
+  .. code-block:: bash
+
+    scp `path_to_your_script` pi@192.168.0.X:/home/pi/catkin_ws/src/ee106s23/scripts/left_wall_following.py
+
+Then, on the same terminal follow the above instructions of performing SSH, and obtain access on the TurtleBot3 by a new terminal.
+
+As the file is copied on the Burger, you can navigate to the `ee106s23` ROS package, and provide permission on the copied ROS node with the command `chmod +x left_wall_following.py`. To execute your ROS node on the Turtlebot3, perform the following command on the SSH terminal,
 
   .. code-block:: bash
 
     rosrun ee106s23 left_wall_following.py
 
-To interrupt the behavior, you can cancel the execution of the ROS node in the same way as the Gazebo. In case you want to perform changes on your code, you can do this locally, and then copy back the new updated code on the robot. 
+To interrupt the behavior, you can cancel the execution of the ROS node in the same way as the Gazebo. In case you want to perform changes on your code, you can do this locally on your computer, and then copy back the new updated code on the robot. 
 
-Communication with TurtleBot
-----------------------------
-
-- Once you have successfully login to the actual robot, 
-  the following command can bring up the Kobuki mobile base. 
+Additionally, you can use the keyboard as a controller to provide velocity commands directly on the robot and also to stop it. To enable this node please execute,
 
   .. code-block:: bash
     
-    roslaunch turtlebot_bringup minimal.launch --screen
-
-- Then you can open another terminal and remote login (again, twice) to the robot to run the script.
-
-- Alternatively, you can use another terminal to run the teleop command for testing **using the default linear and angular velocity**. 
-
-  .. code-block:: bash
-    
-    roslaunch turtlebot_teleop keyboard_teleop.launch
-
-- To edit the script already copied to the robot, use the following command. 
-  (This is where you may fail if ``-X`` option was not specified when using ssh.)
-
-  .. code-block:: bash
-    
-    gedit ~/team01/turtlebot.py
-
-- Then demo to TAs.
-
-.. note::
-
-  When you bring up the robot, the odometry will be reset (initialized to origin).
+    roslaunch X keyboard_teleop.launch
 
 ROS Node template for the Left Wall-Following
 ----------
@@ -74,12 +59,13 @@ ROS Node template for the Left Wall-Following
 
 The above code can be used as a template for the Lab 7 and the final Lab. 
 
+
 ROS Bag Recording and Data Logging
 ----------
 
-One of the ways to record the data being produced or computed during a ROS scenario you can use the ROS bag command. Specifically, this command enables the ROS data logging feature, to capture information that is being published via the ROS Topics. This information is saved in ROS Bag files, which can be accessed at a later time and be replayed back to repeat the scenario. 
+One of the ways to record the data being produced during a ROS scenario you can use the ROS bag command. Specifically, this command enables the ROS data logging feature to capture information that is being published via the ROS Topics and save it locally. The information is saved in ROS Bag file format (`.bag`), which can be accessed at a later time and be replayed back to replay the captured data of the scenario. 
 
-The ROS Bag recording can be used in our experiment to save the implemented scenario of the TurtleBot3 and then can be replayed to visualize the scenario. To save the ROS Bag you can execute while the robot is running,
+In our scenario, the ROS Bag recording can be used to save the implemented scenario of the TurtleBot3 and then can be replayed to visualize the data captured during the real scenario. To save the ROS Bag you can execute while the robot is running,
 
   .. code-block:: bash
 
@@ -91,28 +77,26 @@ The locally saved ROS Bag can be replayed back, by doing,
 
     rosbag play name_of_the_rosbag.bag --clock -l
   
-By using the `Space` button you can pause the replay. Additionally, by using the `rostopic list` command you can see that the captured ROS Topics are being replayed back. In our scenario, you will be asked to record a ROS Bag, to use after the lab to access and visualize the captured data from the real scenario in the Lab.
-
-
+By using the `Space` button you can pause the replay. Additionally, by using the `rostopic list` command you can see that the captured ROS Topics are being replayed back. In our scenario, you will be asked to record a ROS Bag, to use after the lab to access and visualize the captured data from the real scenario in the Lab. `Please ask your TA about how to save the captured ROS Bag on your computer.`
 
 Submission
 ----------
 
-The image below showcases the requirements of this lab, 
+The image below showcases the requirements of this lab, which is the considered as the capstone project of the course, 
 
 .. image:: ./pics/capstone_preview.png
     :align: center
 
-#. Lab report with explanation and screenshots from the robot's navigation scenario.
+#. In the lab report include explanations and screenshots from the robot's navigation scenario.
 
 #. Due time: 06/11/2023
 
 #. Grading rubric:
       -  \+10% Communicate successfully with the real robot
-      -  \+ 40%  Demo the task on the real robot
+      -  \+40% Demo the task on the real robot
       -  \+10% Avoid collision with obstacles.
       -  \+10% Reach the goal area and kick the ball.
-      -  \+30% Lab report with included ROS node code, screenshots of RViz by using the captured ROS Bag, showing the frames and the LiDAR visualization during the robot's navigation.
+      -  \+30% Lab report with included ROS Node code, screenshots of RViz by using the captured ROS Bag to illustrate any robot state with the LiDAR information and the TF, and remarks and lessons learned from the lab.
 
 Lab Rules
 ---------
