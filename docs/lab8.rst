@@ -27,7 +27,7 @@ First we need to enable the robot `bringup` ROS node. Thus, execute in the above
 
   .. code-block:: bash
 
-    roslaunch turtlebot3_bringup turtlebot3_robot. launch
+    roslaunch turtlebot3_bringup turtlebot3_robot.launch
 
 To execute your locally saved ROS node, you need first to secure copy (`scp`) it in the robot's directory and then execute it. So, open a terminal in your VMware and execute,
 
@@ -45,11 +45,12 @@ As the file is copied on the Burger, you can navigate to the `ee106s23` ROS pack
 
 To interrupt the behavior, you can cancel the execution of the ROS node in the same way as the Gazebo. In case you want to perform changes on your code, you can do this locally on your computer, and then copy back the new updated code on the robot. 
 
-Additionally, you can use the keyboard as a controller to provide velocity commands directly on the robot and also to stop it. To enable this node please execute,
+.. Additionally, you can use the keyboard as a controller to provide velocity commands directly on the robot and also to stop it. To enable this node please execute,
 
-  .. code-block:: bash
+..   .. code-block:: bash
     
-    roslaunch X keyboard_teleop.launch
+..     roslaunch X keyboard_teleop.launch
+
 
 ROS Node template for the Left Wall-Following
 ----------
@@ -81,6 +82,12 @@ By using the `Space` button you can pause the replay. Additionally, by using the
 
 Submission
 ----------
+
+
+
+.. image:: ./pics/leftwallfollowing_lab8.png
+    :align: center
+
 
 The image below showcases the requirements of this lab, which is the considered as the capstone project of the course, 
 
