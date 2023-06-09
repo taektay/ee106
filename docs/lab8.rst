@@ -78,7 +78,9 @@ The locally saved ROS Bag can be replayed back, by doing,
 
     rosbag play name_of_the_rosbag.bag --clock -l
   
-By using the `Space` button you can pause the replay. Additionally, by using the `rostopic list` command you can see that the captured ROS Topics are being replayed back. In our scenario, you will be asked to record a ROS Bag, to use after the lab to access and visualize the captured data from the real scenario in the Lab. `Please ask your TA about how to save the captured ROS Bag on your computer.`
+By using the `Space` button you can pause the replay. Additionally, by using the `rostopic list` command you can see that the captured ROS Topics are being replayed back. 
+
+.. In our scenario, you will be asked to record a ROS Bag, to use after the lab to access and visualize the captured data from the real scenario in the Lab. `Please ask your TA about how to save the captured ROS Bag on your computer.`
 
 Submission
 ----------
@@ -102,8 +104,8 @@ The image below showcases the requirements of this lab, which is the considered 
       -  \+10% Communicate successfully with the real robot
       -  \+40% Demo the task on the real robot
       -  \+10% Avoid collision with obstacles.
-      -  \+10% Reach the goal area and kick the ball.
-      -  \+30% Lab report with included ROS Node code, screenshots of RViz by using the captured ROS Bag to illustrate any robot state with the LiDAR information and the TF, and remarks and lessons learned from the lab.
+      -  \+10% Reach the goal area and kick the balls.
+      -  \+30% Lab report with included ROS Node code and remarks and lessons learned from the lab.
 
 Lab Rules
 ---------

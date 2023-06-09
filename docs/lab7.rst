@@ -28,7 +28,7 @@ Initially, as can be seen from the image, every case can be modeled by using two
     :header-rows: 1
 
     * - Left Side
-      - Forward Side
+      - Front Side
       - Action
     * - Free
       - Free
