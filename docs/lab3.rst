@@ -137,86 +137,86 @@ In this assignment, we will use our obstacle detection behavior (from Lab 2) bas
  
 
 
-Solution Approach for Lab 3 Assignment
------------------
+.. Solution Approach for Lab 3 Assignment
+.. -----------------
 
 
-.. code-block:: python
+.. .. code-block:: python
 
-    #!/usr/bin/env python3
+..     #!/usr/bin/env python3
 
-    import rospy
-    import roslib
-    roslib.load_manifest('ee106s23')
-    import sys
-    import numpy as np
-    from sensor_msgs.msg import LaserScan
-    import rospy
-    import math
-    import tf
-    import geometry_msgs.msg
-    import numpy as np
+..     import rospy
+..     import roslib
+..     roslib.load_manifest('ee106s23')
+..     import sys
+..     import numpy as np
+..     from sensor_msgs.msg import LaserScan
+..     import rospy
+..     import math
+..     import tf
+..     import geometry_msgs.msg
+..     import numpy as np
 
-    class ranges_check:
+..     class ranges_check:
         
-    def __init__(self):
-        rospy.Subscriber("front/scan", LaserScan, self.callback)
+..     def __init__(self):
+..         rospy.Subscriber("front/scan", LaserScan, self.callback)
 
 
-    def callback(self,data):
+..     def callback(self,data):
 
-        listener = tf.TransformListener()
+..         listener = tf.TransformListener()
         
-        while True:
-            try:
-                (trans,rot) = listener.lookupTransform('/front_bumper', '/front_laser', rospy.Time(0))
-                break
-            except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
-                continue
+..         while True:
+..             try:
+..                 (trans,rot) = listener.lookupTransform('/front_bumper', '/front_laser', rospy.Time(0))
+..                 break
+..             except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
+..                 continue
         
-        T = tf.transformations.quaternion_matrix(rot)
+..         T = tf.transformations.quaternion_matrix(rot)
         
-        T[0,3] = trans[0]
-        T[1,3] = trans[1]
-        T[2,3] = trans[2]
-        print("\n\n")
+..         T[0,3] = trans[0]
+..         T[1,3] = trans[1]
+..         T[2,3] = trans[2]
+..         print("\n\n")
 
-        idx = -1
-        for r in data.ranges:
-            idx = idx + 1
-            if (str(r)=="inf"):
-                continue
+..         idx = -1
+..         for r in data.ranges:
+..             idx = idx + 1
+..             if (str(r)=="inf"):
+..                 continue
             
-            (x,y) = self.calculate_position_of_range(r, idx, data.angle_increment, data.angle_min)
-            print(x,y)
-            laser_point_detected = [x, y, 0, 1]
-            print(np.dot(T , laser_point_detected))
+..             (x,y) = self.calculate_position_of_range(r, idx, data.angle_increment, data.angle_min)
+..             print(x,y)
+..             laser_point_detected = [x, y, 0, 1]
+..             print(np.dot(T , laser_point_detected))
             
 
 
-    def calculate_position_of_range(self, range, idx, angle_increment, angle_min):
+..     def calculate_position_of_range(self, range, idx, angle_increment, angle_min):
 
-        if str(range)=="inf":
-            rospy.loginfo("The provided range is infinite!")
-            return -1
+..         if str(range)=="inf":
+..             rospy.loginfo("The provided range is infinite!")
+..             return -1
 
-        theta = idx * angle_increment + angle_min
-        x = range * np.cos(theta)
-        y = range * np.sin(theta)
+..         theta = idx * angle_increment + angle_min
+..         x = range * np.cos(theta)
+..         y = range * np.sin(theta)
 
-        return x,y
+..         return x,y
 
         
-    def main(args):
-        rospy.init_node('ranges_check', anonymous=True)
-        ic = ranges_check()
-        try:
-            rospy.spin()
-        except KeyboardInterrupt:
-            print("Shutting down")
+..     def main(args):
+..         rospy.init_node('ranges_check', anonymous=True)
+..         ic = ranges_check()
+..         try:
+..             rospy.spin()
+..         except KeyboardInterrupt:
+..             print("Shutting down")
             
-    if __name__ == '__main__':
-        main(sys.argv)
+..     if __name__ == '__main__':
+..         main(sys.argv)
 
 
 

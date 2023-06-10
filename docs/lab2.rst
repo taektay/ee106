@@ -245,77 +245,77 @@ ROS Conventions
 
 
 
-Solution Approach for Lab 2 Assignment
------------------
+.. Solution Approach for Lab 2 Assignment
+.. -----------------
 
 
-.. code-block:: python
+.. .. code-block:: python
 
-  #!/usr/bin/env python3
+..   #!/usr/bin/env python3
 
-  import rospy
-  import sys
-  import numpy as np
-  from sensor_msgs.msg import LaserScan
-  from std_msgs.msg import String
+..   import rospy
+..   import sys
+..   import numpy as np
+..   from sensor_msgs.msg import LaserScan
+..   from std_msgs.msg import String
 
-  class ranges_check:
+..   class ranges_check:
       
-    def __init__(self):
-      #
-      # Initialize the ROS publisher and subscriber. Use "self." to initialize the publisher and subscriber variables, to be able to access them through all class methods. The function "callback" will be the callback of the ROS subscriber. 
-      #
-      rospy.Subscriber("front/scan", LaserScan, self.callback)
-      self.pub = rospy.Publisher("jackal_robot_status", String, queue_size=10)
+..     def __init__(self):
+..       #
+..       # Initialize the ROS publisher and subscriber. Use "self." to initialize the publisher and subscriber variables, to be able to access them through all class methods. The function "callback" will be the callback of the ROS subscriber. 
+..       #
+..       rospy.Subscriber("front/scan", LaserScan, self.callback)
+..       self.pub = rospy.Publisher("jackal_robot_status", String, queue_size=10)
 
-    def callback(self,data):
+..     def callback(self,data):
 
-      # Add code here to iterate over all values in LaserScan ranges[] field and check the criticality of the robot position. Additionally, initialize a String variable that will contain the criticality message.
-      #
+..       # Add code here to iterate over all values in LaserScan ranges[] field and check the criticality of the robot position. Additionally, initialize a String variable that will contain the criticality message.
+..       #
       
-      # initialize the counter variables for each criticality level
-      counter_minor = 0
-      counter_major = 0
-      counter_critical = 0
+..       # initialize the counter variables for each criticality level
+..       counter_minor = 0
+..       counter_major = 0
+..       counter_critical = 0
       
-      for r in data.ranges:
-        if str(r)=="inf":
-          continue
+..       for r in data.ranges:
+..         if str(r)=="inf":
+..           continue
 
-        # else check criticality
+..         # else check criticality
 
-        if r < 0.2:
-          counter_critical = counter_critical + 1
-        elif r < 0.5:
-          counter_major = counter_major + 1
-        else:
-          counter_minor = counter_minor + 1
+..         if r < 0.2:
+..           counter_critical = counter_critical + 1
+..         elif r < 0.5:
+..           counter_major = counter_major + 1
+..         else:
+..           counter_minor = counter_minor + 1
           
-        str_msg = String()
-        if counter_critical > 0:
-          str_msg.data = "critical"
-        elif counter_major > 0:
-          str_msg.data = "major"
-        elif counter_minor > 0:
-          str_msg.data = "minor"
-        else: 
-          str_msg.data = "no obstacle"
+..         str_msg = String()
+..         if counter_critical > 0:
+..           str_msg.data = "critical"
+..         elif counter_major > 0:
+..           str_msg.data = "major"
+..         elif counter_minor > 0:
+..           str_msg.data = "minor"
+..         else: 
+..           str_msg.data = "no obstacle"
         
-        # Publish the String through the created ROS publisher variable...
-        #
-        self.pub.publish(str_msg.data)
+..         # Publish the String through the created ROS publisher variable...
+..         #
+..         self.pub.publish(str_msg.data)
       
-  def main(args):
-      ## initialization of the class object
-      rospy.init_node('ranges_check', anonymous=True)
-      ic = ranges_check()
-      try:
-          rospy.spin()
-      except KeyboardInterrupt:
-          print("Shutting down")
+..   def main(args):
+..       ## initialization of the class object
+..       rospy.init_node('ranges_check', anonymous=True)
+..       ic = ranges_check()
+..       try:
+..           rospy.spin()
+..       except KeyboardInterrupt:
+..           print("Shutting down")
           
-  if __name__ == '__main__':
-      main(sys.argv)
+..   if __name__ == '__main__':
+..       main(sys.argv)
 
 
 

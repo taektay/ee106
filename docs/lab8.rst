@@ -60,7 +60,6 @@ ROS Node template for the Left Wall-Following
 
 The above code can be used as a template for the Lab 7 and the final Lab. 
 
-
 ROS Bag Recording and Data Logging
 ----------
 
@@ -85,11 +84,8 @@ By using the `Space` button you can pause the replay. Additionally, by using the
 Submission
 ----------
 
-
-
 .. image:: ./pics/leftwallfollowing_lab8.png
     :align: center
-
 
 The image below showcases the requirements of this lab, which is the considered as the capstone project of the course, 
 
