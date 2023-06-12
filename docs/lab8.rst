@@ -94,7 +94,7 @@ The image below showcases the requirements of this lab, which is the considered 
 
 #. In the lab report include explanations and screenshots from the robot's navigation scenario.
 
-#. Due time: 06/11/2023
+#. Due time: 06/13/2023
 
 #. Grading rubric:
       -  \+10% Communicate successfully with the real robot
