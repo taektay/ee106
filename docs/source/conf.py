@@ -2,8 +2,8 @@
 
 # -- Project information
 
-project = 'UCR EE106 Spring 2023'
-copyright = '2023'
+project = 'UCR EE106 Spring 2024'
+copyright = '2024, UCR-Robotics'
 author = 'UCR-Robotics'
 
 release = '0.1'

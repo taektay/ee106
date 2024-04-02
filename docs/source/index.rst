@@ -14,6 +14,6 @@ Contents
 News
 --------
 
-- 04/07/2023: Welcome!
-- 04/07/2023: Please read `logistics <logistics.html>`_.
-- 04/07/2023: `Lab 0 <lab0.html>`_ is up!
+- 04/02/2024: Welcome!
+- 04/02/2024: Please read `logistics <logistics.html>`_.
+- 04/02/2024: `Lab 0 <lab0.html>`_ is up!

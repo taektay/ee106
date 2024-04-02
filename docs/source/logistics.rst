@@ -7,8 +7,11 @@ Welcome
 This page introduces logistics for lab section only; 
 please see syllabus for course overview and lecture/homework related logistics.
 
-- Teaching Assistant: Dimitris Chatziparaschis
-- Email: dchat013@ucr.edu
+- Teaching Assistant: Xiaoao Song
+- Email: xsong036@ucr.edu
+
+- Teaching Assistant: Ashok Kumar J
+- Email: ajakk002@ucr.edu
 
 Please **feel free** to contact the TA if you have any questions.
 

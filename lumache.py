@@ -1,5 +1,5 @@
 """
-UCR EE106 Spring 2023
+UCR EE106 Spring 2024
 """
 
 __version__ = "0.1.0"
