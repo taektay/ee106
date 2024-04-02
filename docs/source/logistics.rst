@@ -10,6 +10,7 @@ please see syllabus for course overview and lecture/homework related logistics.
 - Teaching Assistant: Xiaoao Song
 - Email: xsong036@ucr.edu
 
+
 - Teaching Assistant: Ashok Kumar J
 - Email: ajakk002@ucr.edu
 
@@ -131,9 +132,8 @@ Lab Safety
 #. Please place your robot in the following way to prevent it 
    from accidentally dropping down to the ground.
 
-.. image:: .docs/source/pics/safety.jpg
+.. image:: source/pics/safety.jpg
     :width: 60%
     :align: center
 
 .. _symptom survey: https://ucriverside.az1.qualtrics.com/jfe/form/SV_cOB8gBU6OVulQax
-
