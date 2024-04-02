@@ -93,7 +93,7 @@ Rubric Details
 Field Map
 ---------
 
-.. image:: pics/capstone_map.jpg
+.. image:: .docs/source/pics/capstone_map.jpg
   :width: 80%
   :align: center
 

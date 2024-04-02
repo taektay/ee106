@@ -120,7 +120,7 @@ A* Pseudocode
 
 You may refer to the pseudocode shown below.
 
-.. image:: pics/pseudocode.jpg
+.. image:: .docs/source/pics/pseudocode.jpg
   :width: 80%
   :align: center
 
