@@ -84,12 +84,12 @@ By using the `Space` button you can pause the replay. Additionally, by using the
 Submission
 ----------
 
-.. image:: ./pics/leftwallfollowing_lab8.png
+.. image:: .docs/source/pics/leftwallfollowing_lab8.png
     :align: center
 
 The image below showcases the requirements of this lab, which is the considered as the capstone project of the course, 
 
-.. image:: ./pics/capstone_preview.png
+.. image:: .docs/source/pics/capstone_preview.png
     :align: center
 
 #. In the lab report include explanations and screenshots from the robot's navigation scenario.

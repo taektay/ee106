@@ -15,7 +15,7 @@ To perform the left wall following initially, we have to consider the type of se
 
 The cases that a robot might experience during its exploration in a maze, by following left wall-following, are depicted below,
 
-.. image:: ./pics/wall_following.png
+.. image:: .docs/source/pics/wall_following.png
  :width: 600
  :align: center
 
@@ -50,7 +50,7 @@ Finite-State Machine (FSM)
 
 A Finite-State Machine is a state automata that can formulate an algorithmic problem, which can be described by distinct states and transitions between them. Specifically, an FSM contains a finite number of states with an initial starting state, and at each moment only one state can be active in the machine. To have a transition between states, specific actions needed to occur (triggered) that also are described by the transition actions.
 
-.. image:: ./pics/fsm.png
+.. image:: .docs/source/pics/fsm.png
  :width: 400
  :align: center
 
@@ -73,12 +73,12 @@ Submission
  + \+ 40% Fully integrate the FSM behavior in the Turtlebot3 Burger motion planning behavior, based on the work of the ROS node of `Lab 5 <https://ucr-ee106.readthedocs.io/en/latest/lab5.html#submission>`_. 
  + \+ 25% Demonstrate the left wall-following behavior on the `complex_case.world`, provide comments about the robot behavior, and provide a panoramic video of the result (link).
  
- .. image:: ./pics/complex_case.png
+ .. image:: .docs/source/pics/complex_case.png
  :align: center
 
  + \+ 25% Demonstrate the left wall-following behavior on the `more_complex_case.world`, provide comments about the robot behavior, and include a panoramic video of the result in the report (link).
  
- .. image:: ./pics/more_complex_case.png
+ .. image:: .docs/source/pics/more_complex_case.png
  :align: center
 
  + \- 15% Penalty applies for each late day. 

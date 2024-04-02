@@ -177,7 +177,7 @@ Submission
 
 #. Grading rubric:
 
-   .. image:: ./pics/straight_line_wall_following.png
+   .. image:: .docs/source/pics/straight_line_wall_following.png
       :align: center
 
    + \+ 5% Create a new folder in ``ee106s23`` ROS package, by using the name ``worlds``. Download the `Gazebo world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/straight_line.world>`_ and copy it inside the ``ee106s23/worlds/`` folder.
