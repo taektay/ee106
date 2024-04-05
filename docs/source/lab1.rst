@@ -79,13 +79,20 @@ From now on, we assume that you have already installed Ubuntu 20.04 and ROS Noet
 ROS Publisher and Subcriber Python Nodes
 ----------
 
+
   
 The next step is to head to our  `ROS tutorial`_ and create the ROS publisher and subscriber nodes. The Python scripts can be saved under the ``ee106s24/src/`` folder. To be able to use the developed ROS python nodes, you need to provide execution permissions by,
 
 .. code-block:: bash
 
     roscd ee106s24/src/
+    
+    touch publisher.py 
+    # copy and paste the publisher code in this file
     chmod +x publisher.py
+
+    touch subscriber.py
+    # copy and paste the subscriber code in this file
     chmod +x subscriber.py
 
 To execute the created ROS nodes, firstly you need to launch the ROS core in a new terminal by doing,
