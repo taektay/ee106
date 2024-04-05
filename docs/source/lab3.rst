@@ -19,7 +19,7 @@ and
 
 .. code-block:: bash
  
- roslaunch ee106s23 jackal.launch
+ roslaunch ee106s24 jackal.launch
 
 As the robot has been successfully spawned inside the Gazebo world, we can enable the ROS visualization tool, by executing in a separate terminal,
 
@@ -65,13 +65,13 @@ One of the terminal commands to obtain the `transformation matrix` between two R
 
  rosrun tf tf_echo base_link front_laser
 
-This information can be captured also inside a ROS node by using the ``tf.TransformListener()`` module. To test it, please initialize a new ROS node inside the ``ee106s23`` ROS package, under the name of ``tf_listener.py``, which will contain,
+This information can be captured also inside a ROS node by using the ``tf.TransformListener()`` module. To test it, please initialize a new ROS node inside the ``ee106s24`` ROS package, under the name of ``tf_listener.py``, which will contain,
 
 .. code-block:: python
 
  #!/usr/bin/env python
  import roslib
- roslib.load_manifest('ee106s23')
+ roslib.load_manifest('ee106s24')
  import rospy
  import math
  import tf
@@ -147,7 +147,7 @@ In this assignment, we will use our obstacle detection behavior (from Lab 2) bas
 
 ..     import rospy
 ..     import roslib
-..     roslib.load_manifest('ee106s23')
+..     roslib.load_manifest('ee106s24')
 ..     import sys
 ..     import numpy as np
 ..     from sensor_msgs.msg import LaserScan

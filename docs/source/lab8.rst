@@ -33,15 +33,15 @@ To execute your locally saved ROS node, you need first to secure copy (`scp`) it
 
   .. code-block:: bash
 
-    scp `path_to_your_script` pi@192.168.0.X:/home/pi/catkin_ws/src/ee106s23/scripts/left_wall_following.py
+    scp `path_to_your_script` pi@192.168.0.X:/home/pi/catkin_ws/src/ee106s24/scripts/left_wall_following.py
 
 Then, on the same terminal follow the above instructions of performing SSH, and obtain access on the TurtleBot3 by a new terminal.
 
-As the file is copied on the Burger, you can navigate to the `ee106s23` ROS package, and provide permission on the copied ROS node with the command `chmod +x left_wall_following.py`. To execute your ROS node on the Turtlebot3, perform the following command on the SSH terminal,
+As the file is copied on the Burger, you can navigate to the `ee106s24` ROS package, and provide permission on the copied ROS node with the command `chmod +x left_wall_following.py`. To execute your ROS node on the Turtlebot3, perform the following command on the SSH terminal,
 
   .. code-block:: bash
 
-    rosrun ee106s23 left_wall_following.py
+    rosrun ee106s24 left_wall_following.py
 
 To interrupt the behavior, you can cancel the execution of the ROS node in the same way as the Gazebo. In case you want to perform changes on your code, you can do this locally on your computer, and then copy back the new updated code on the robot. 
 
