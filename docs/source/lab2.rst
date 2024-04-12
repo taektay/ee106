@@ -193,7 +193,7 @@ In this lab's submission, we will develop a ROS node that will receive the simul
 
 .. #. Demo: required (Demonstrate the ROS node functionality in the Gazebo world by using the Jackal.)
 
-#. Due time: 11:59pm, May 1, Monday
+#. Due time: 11:59pm, April 27, Saturday
 
 #. Files to submit: 
 
