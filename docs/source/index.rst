@@ -9,6 +9,7 @@ Contents
    logistics
    lab0
    lab1
+   lab2
    linux
    ros
 
