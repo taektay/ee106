@@ -118,7 +118,7 @@ In this assignment, we will use our obstacle detection behavior (from Lab 2) bas
 
 .. #. Demo: required (Demonstrate the ROS node functionality in the Gazebo world by using the Jackal.)
 
-#. Due time: 11:59pm, May 7, Sunday
+#. Due time: 11:59pm, May 4, Saturday
 
 #. Files to submit: 
 
