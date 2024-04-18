@@ -78,7 +78,7 @@ Submission
 
  + \+ 25% Demonstrate the left wall-following behavior on the `more_complex_case.world`, provide comments about the robot behavior, and include a panoramic video of the result in the report (link).
  
- .. image:: .docs/source/pics/more_complex_case.png
+ .. image:: pics/more_complex_case.png
  :align: center
 
  + \- 15% Penalty applies for each late day. 
