@@ -40,7 +40,9 @@ In order to visualize the robot in the RViz tool, we have to set firstly the vis
 ROS Frames and TF Listener
 -----------
 
-`ROS frames <http://wiki.ros.org/tf2>`_ are fundamental entities in ROS, as they represent the existing coordinate systems of the robotic setup. Particularly, ROS frames can be assigned on any part of the robot, which can be considered rigid, as well as, on any onboard sensor. Thus, each captured measurement can be spatially described in the corresponding ROS frame of the capturing sensor, while multiple frames can be connected to each other spatially and form the ROS frame tree of the ROS setup.
+`ROS frames <http://wiki.ros.org/tf2>`_ are fundamental entities in ROS, as they represent the existing coordinate systems of the robotic setup. Particularly, ROS frames can be assigned on any part of the robot, which can be considered rigid, as well as, on any onboard sensor. Thus, each captured measurement can be spatially described in the corresponding ROS frame of the capturing sensor, while multiple frames can be connected to each other spatially and form the ROS frame tree of the ROS setup. 
+
+To see the current frames, type 'rqt' in your terminal, and add TF Tree from Plugins > Visualization from the pop up window.
 
  .. image:: pics/jackal_frames.jpg
  :align: center
@@ -69,7 +71,7 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
 
 .. code-block:: python
 
- #!/usr/bin/env python
+ #!/usr/bin/env python3
  import roslib
  roslib.load_manifest('ee106s24')
  import rospy
@@ -79,6 +81,7 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
  import numpy as np
 
  # initialization of the ROS tf listener
+ rospy.init_node('tf_listener')
  listener = tf.TransformListener()
 
  rate = rospy.Rate(10.0)
@@ -95,7 +98,7 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
     print("The rotation (quaternion) is (x,y,z,w) = " + str(rot))
     print("The rotation (euler) is (r,p,y) = " + str(tf.transformations.euler_from_quaternion(rot)))
     rot_mat = tf.transformations.quaternion_matrix(rot)
-    print("The rotation (rotation matrix) is = " + str(tf.transformations.quaternion_matrix(rot)))
+    print("The rotation (rotation matrix) is = \n" + str(tf.transformations.quaternion_matrix(rot)))
     
     # we assume that a Lidar point is detected, w.r.t the Lidar's frame
     laser_point_detected = [1, 0, 0, 1]
@@ -104,7 +107,7 @@ This information can be captured also inside a ROS node by using the ``tf.Transf
     rot_mat[0,3] = trans[0]
     rot_mat[1,3] = trans[1]
     rot_mat[2,3] = trans[2]
-    print(np.dot(rot_mat , laser_point_detected))
+    print("laser_point_detected in base_link frame is: ",np.dot(rot_mat , laser_point_detected))
     
     rate.sleep()
  
