@@ -129,7 +129,7 @@ In this assignment, we will use our obstacle detection behavior (from Lab 2) bas
 
 #. Grading rubric:
  
- - \+ 10% Initialize the world setup as described above, by having the Jackal and the `Stop Sign` placed inside the Gazebo world. Also, create the new `front_bumper` frame, as described above.
+ - \+ 10% Initialize the world setup as described above, by having the Jackal and an `Obstacle` placed inside the Gazebo world. Also, create the new `front_bumper` frame, as described above.
  - \+ 10% Showcase how you can print the `transformation matrix` between the `front_laser` frame and the frame of the front bumper `front_bumper` by using the ``tf_echo`` command of the terminal. 
  - \+ 10% Create a new `ROS node <https://github.com/UCR-Robotics/ee106/blob/main/scripts/rangescheck_jackal.py>`_ that contains a ROS listener and obtain the transformation the `front_laser` and the `front_bumper` frames.
  - \+ 20% Print the translation and rotation matrices from the captured transformation and form the transformation matrix T [4x4].
