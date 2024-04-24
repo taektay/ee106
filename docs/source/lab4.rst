@@ -131,7 +131,7 @@ You need to make changes under ``run`` function to complete the square trajector
         def __init__(self):
             rospy.init_node("turtlebot_move")
             rospy.loginfo("Press Ctrl + C to terminate")
-            self.vel_pub = rospy.Publisher("", Twist, queue_size=10)
+            self.vel_pub = rospy.Publisher("cmd_vel", Twist, queue_size=10)
             self.rate = rospy.Rate(10)
             self.run()
 
