@@ -16,8 +16,8 @@ and the Python script should exit gracefully.
 Introduction to Turtlebot
 -------------------------
 
-The Turtlebot3 robot is a differential wheeled robot built on top of the Kobuki mobile base. 
-We have customized it to include more sensors (one Lidar, two cameras, and one manipulator).
+The Turtlebot robot is a differential wheeled robot built on top of the mobile base. 
+We have customized it to include more sensors (Lidar, camera and etc).
 See the image (right) below for Turtlebot family. 
 
 Though multiple layers of plates/sensors are placed on top of the robot, 
@@ -369,22 +369,24 @@ Submission
 
 #. Due time: 11:59pm, May 11, Saturday
 
-#. Files to submit: 
+#. Files to submit:(please use exactly the same filename; case sensitive) 
 
-   - lab4_report.pdf with the open_loop.py included inside
+   - lab4_report.pdf 
+   - open_loop.py 
 
 #. Grading rubric:
 
-   + \+ 50%  Clearly describe your approach and explain your code in the lab report. Capture a panoramic ``video`` of the robot demonstrating the followed trajectory inside the Gazebo world. You can use the `simplescreenrecorder` software, by installing it with,
+   + \+ 50%  Clearly describe your approach and explain your code in the lab report. 
+   + \+ 40%  The robot can visit all four vertices of the square trajectory (error < 1.0m). 
+     Partial credits will be given according to the number of vertices visited.
+   + \+ 10%  The script can complete the task on time and exit gracefully.
+   + \- 15%  Penalty applies for each late day. 
+   + (Optional) Capture a panoramic ``video`` of the robot demonstrating the followed trajectory inside the Gazebo world. You can use the `simplescreenrecorder` software, by installing it with,
 
     .. code-block:: bash
 
       sudo apt install simplescreenrecorder
 
-   + \+ 40%  The robot can visit all four vertices of the square trajectory (error < 1.0m). 
-     Partial credits will be given according to the number of vertices visited.
-   + \+ 10%  The script can complete the task on time and exit gracefully.
-   + \- 15%  Penalty applies for each late day. 
 
 .. Autograder
 .. ----------
