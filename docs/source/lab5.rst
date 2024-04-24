@@ -17,13 +17,6 @@ Please plot the trajectory (using another provided Python script) and discuss yo
 
 To help you complete the lab, please take a look at the `Classes section <https://docs.python.org/3/tutorial/classes.html>`_ in Python Docs.
 
-Preview
---------
-
-We will play with manipulators in the simulation next time. 
-(Specifically, to solve a Forward Kinematics and an Inverse Kinematics problem.)
-**Note that we will start to team up in Lab 4, so please try to form your team ASAP.**
-
 
 Submission
 ----------
@@ -32,11 +25,11 @@ Submission
 
 #. Demo: required during the lab session (will use autograder; see below)
 
-#. Due time: 23:59pm, Nov 3, Friday
+#. Due time: 11:59pm, May 18, Saturday
 
 #. Files to submit: (please use exactly the same filename; case sensitive)
 
-   - lab3_report.pdf
+   - lab5_report.pdf
    - closed_loop.py
 
 #. Grading rubric:
