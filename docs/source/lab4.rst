@@ -79,6 +79,7 @@ First, we clone and install the turtlebot3 ROS packages in our ROS workspace,
     cd ~/catkin_ws/src/
     git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
     git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations
+    git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
     cd ../
 
 and then we build the workspace.
@@ -366,7 +367,7 @@ Submission
 
 #. Submission: individual submission via Gradescope
 
-#. Due time: 11:59pm, May 14, Sunday
+#. Due time: 11:59pm, May 11, Sunday
 
 #. Files to submit: 
 
