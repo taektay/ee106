@@ -181,18 +181,18 @@ Sample Code
 A sample code is provided as the starting point for your implementation. 
 Please read carefully the provided code, and understand its functionality. 
 
-- Open a new terminal and go to the ``ee144f23`` package. 
+- Open a new terminal and go to the ``ee106s24`` package. 
   We will start from a new python script.
 
   .. code-block:: bash
 
-    roscd ee144f23/scripts
+    roscd ee106s24/scripts
     touch closed_loop.py
     gedit closed_loop.py
 
 - Please copy and paste the following code, then save and close it. If you are using M1/M2, please replace the ROS Topic with "cmd_vel".
 
-  .. literalinclude:: ../scripts/closed_loop.py
+  .. literalinclude:: ../../scripts/closed_loop.py
     :language: python
 
 - Please make changes to the ``run`` function to complete the task in this lab.
