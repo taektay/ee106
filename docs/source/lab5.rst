@@ -47,7 +47,7 @@ Autograder
 
 All code submissions will be graded automatically by an autograder uploaded to Gradescope.
 Your scripts will be tested on a Ubuntu cloud server using a similar ROS + Gazebo environment.
-The grading results will be available in a couple of minutes after submission. For the M1/M2 architecture computers, please provide your final code and video of the robot behavior, as I will be tested offline.
+The grading results will be available in a couple of minutes after submission.
 
 Testing parameters are as follows. 
 
