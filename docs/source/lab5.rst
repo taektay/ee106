@@ -190,13 +190,13 @@ Please read carefully the provided code, and understand its functionality.
     touch closed_loop.py
     gedit closed_loop.py
 
-- Please copy and paste the following code, then save and close it. If you are using M1/M2, please replace the ROS Topic with "cmd_vel".
+- Please copy and paste the following code, then save and close it.
 
   .. literalinclude:: ../../scripts/closed_loop.py
     :language: python
 
 - Please make changes to the ``run`` function to complete the task in this lab.
-  Once finished, you can run it two ways as introduced in Lab 2.
+  Once finished, you can run it two ways as introduced in Lab 4.
   (Remember to bring up the robot before running the script.)
 
   .. code-block:: bash
@@ -228,7 +228,7 @@ Sample Code Explained
         self.reset_pub.publish(Empty())
         self.rate.sleep()
 
-- In Lab 2, we have learned how to use ROS Publisher to send a message out. 
+- In Lab 4, we have learned how to use ROS Publisher to send a message out. 
   ROS Subscriber is the one on the other side to receive and process the messages.
   The required arguments are the topic name ``odom``, 
   the message type ``Odometry``, and a pointer to the callback function.
@@ -263,5 +263,5 @@ We provide a separate Python script to help visualize the trajectory from the sa
 Please do not submit this file and do not include it in the script you plan to submit,
 as it will block the autograder until running timeout.
 
-.. literalinclude:: ../scripts/visualization.py
+.. literalinclude:: ../../scripts/visualization.py
   :language: python
