@@ -17,11 +17,11 @@ The pseudocode is provided at the end of this page.
 Submission
 ----------
 
-#. Submission: group submission via Gradescope
+#. Submission: group submission via Gradescope (2-people)
 
 #. Demo: not required
 
-#. Due time: 11:59, May 25, Thursday
+#. Due time: 11:59PM, May 25, Saturday
 
 #. Files to submit:
 
@@ -120,7 +120,7 @@ A* Pseudocode
 
 You may refer to the pseudocode shown below.
 
-.. image:: .docs/source/pics/pseudocode.jpg
+.. image:: pics/pseudocode.jpg
   :width: 80%
   :align: center
 
