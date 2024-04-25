@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from math import pi, sqrt, atan2, cos, sin
 import numpy as np
