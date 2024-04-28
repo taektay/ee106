@@ -69,7 +69,8 @@ with respect to :math:`W` will be of the from:
   0 & 0 & 1     
   \end{bmatrix}
 
-If you want to know how to work on turtlebot3, we provide the installation guide below:
+
+In this and the following lab assignments, we will work with turtlebot2. The installation steps of the turtlebot2 are very complicated. We will go through this in class and upload the insturctions afterwards. Instead, working on turtlebot3 is simple and we provide the installation guide below:
 
 Turtlebot3 Installation Steps
 ----------------
