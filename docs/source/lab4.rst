@@ -4,7 +4,7 @@ Lab 4: Open Loop Control
 Overview
 --------
 
-In this lab, we are going to learn how to write a Python script to control the Turtlebot3 robot. Specifically, the task is to make the robot move in a square shape using open-loop control 
+In this lab, we are going to learn how to write a Python script to control the Turtlebot2 robot. Specifically, the task is to make the robot move in a square shape using open-loop control 
 (i.e. sending commands only; no feedback). 
 The waypoints to visit are [4, 0], [4, 4], [0, 4] and [0, 0]. 
 In other words, the robot should move forward 4 meters, turn left 90 degrees, 
@@ -71,6 +71,8 @@ with respect to :math:`W` will be of the from:
 
 Installation Steps
 ----------------
+
+If you want to know how to work on turtlebot3, we provide the installation guide below:
 
 First, we clone and install the turtlebot3 ROS packages in our ROS workspace,
 
