@@ -69,10 +69,10 @@ with respect to :math:`W` will be of the from:
   0 & 0 & 1     
   \end{bmatrix}
 
-Installation Steps
-----------------
-
 If you want to know how to work on turtlebot3, we provide the installation guide below:
+
+Turtlebot3 Installation Steps
+----------------
 
 First, we clone and install the turtlebot3 ROS packages in our ROS workspace,
 
@@ -119,7 +119,7 @@ You need to make changes under ``run`` function to complete the square trajector
     touch open_loop.py
     gedit open_loop.py
 
-- Please copy and paste the following code, then save and close it.
+- Please copy and paste the following code, then save and close it. If you are working on turtlebot 2, you will need to change the topic name to ``/mobile_base/commands/velocity``.
 
   .. code-block:: python
 
