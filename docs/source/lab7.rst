@@ -6,7 +6,7 @@ Overview
 
 In this lab, we will continue the development of the Turtlebot2 left wall-following behavior, by fully describing the navigation and sensing problem and the way of approaching it. Additionally, we will introduce the Finite State Machine (FSM) which will be integrated into the development of our behavior. 
 
-The developed behavior will be evaluated and tested on the real Turtlebot3 Burger on Week 10, in a real wall-following setting.
+The developed behavior will be evaluated and tested on the real Turtlebot2 on Week 10, in a real wall-following setting.
 
 Left Wall-following Scenario
 --------
