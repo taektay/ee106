@@ -70,8 +70,7 @@ with respect to :math:`W` will be of the from:
   \end{bmatrix}
 
 
-In this and the following lab assignments, we will work with turtlebot2. The installation steps of the turtlebot2 are very complicated and the installation guide is posted [here](https://github.com/lineojcd/EE106/tree/main/Kobuki). We will also go through this in class. Instead, working on turtlebot3 is simple and we provide the installation guide below:
-Please check [here](https://github.com/lineojcd/EE106/tree/main/RPLidar).
+In this and the following lab assignments, we will work with turtlebot2. The installation steps of the turtlebot2 are very complicated and the installation guide is posted `here<https://github.com/lineojcd/EE106/tree/main/Kobuki>`_. We will also go through this in class. Instead, working on turtlebot3 is simple and we provide the installation guide below:
 
 Turtlebot3 Installation Steps
 ----------------
@@ -104,7 +103,7 @@ The turtlebot3 supports teleoperation through `geometry_msgs/Twist` commands, vi
 
     rosrun turtlebot3_teleop turtlebot3_teleop_key
 
-Noted: we will use Turtlebot2 in lab 4, 5, 7 and 8. We DO NOT use Turtlebot 3!
+Noted: we will use Turtlebot2 in lab 4, 5, 7 and 8. We **DO NOT** use Turtlebot 3!
 
 Sample Code
 -----------
