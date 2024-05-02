@@ -71,6 +71,7 @@ with respect to :math:`W` will be of the from:
 
 
 In this and the following lab assignments, we will work with turtlebot2. The installation steps of the turtlebot2 are very complicated and the installation guide is posted [here](https://github.com/lineojcd/EE106/tree/main/Kobuki). We will also go through this in class. Instead, working on turtlebot3 is simple and we provide the installation guide below:
+Please check [here](https://github.com/lineojcd/EE106/tree/main/RPLidar).
 
 Turtlebot3 Installation Steps
 ----------------
