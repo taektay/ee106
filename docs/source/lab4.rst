@@ -70,7 +70,7 @@ with respect to :math:`W` will be of the from:
   \end{bmatrix}
 
 
-In this and the following lab assignments, we will work with turtlebot2. The installation steps of the turtlebot2 are very complicated and the installation guide is posted `here <https://github.com/lineojcd/EE106/tree/main/Kobuki>`_. We will also go through this in class. For lab 4 and 5, you just need to install Kobuki base and Kobuki in Gazebo; for lab 7 and 8, you will also need to install RPLidar from `here <https://github.com/lineojcd/EE106/tree/main/RPLidar>`_. Instead, working on turtlebot3 is simple and we provide the installation guide below:
+In this and the following lab assignments, we will work with turtlebot2. The installation steps of the turtlebot2 are very complicated and the installation guide is posted `here <https://github.com/lineojcd/EE106/tree/main/Kobuki>`_. We will also go through this in class. For lab 4 and 5, you just need to install Kobuki base and Kobuki in Gazebo; for lab 7 and 8, you will also need to install RPLidar from `here <https://github.com/lineojcd/EE106/tree/main/RPLidar>`_. Instead, working on turtlebot3 is simple and we provide the installation guide below for those who want to learn more:
 
 Turtlebot3 Installation Steps
 ----------------
