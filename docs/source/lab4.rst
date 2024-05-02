@@ -70,7 +70,7 @@ with respect to :math:`W` will be of the from:
   \end{bmatrix}
 
 
-In this and the following lab assignments, we will work with turtlebot2. The installation steps of the turtlebot2 are very complicated. We will go through this in class and upload the insturctions afterwards. Instead, working on turtlebot3 is simple and we provide the installation guide below:
+In this and the following lab assignments, we will work with turtlebot2. The installation steps of the turtlebot2 are very complicated (The installation instruction is posted [here](https://github.com/lineojcd/EE106/tree/main/Kobuki). ). We will go through this in class and upload the insturctions afterwards. Instead, working on turtlebot3 is simple and we provide the installation guide below:
 
 Turtlebot3 Installation Steps
 ----------------
