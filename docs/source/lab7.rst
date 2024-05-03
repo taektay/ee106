@@ -61,11 +61,13 @@ Submission
 
 #. Group Submission (2-people)
 
-#. Due time: 11:59pm, June 4, Sunday
+#. Due time: 11:59pm, June 1, Sunday
 
 #. Files to submit:
 
  - lab7_report.pdf with link of the video/s included. Please provide a report describing all the following steps and results experienced in both experiments.
+ - complex.py
+ - more_complex.py
 
 #. Grading rubric:
 
