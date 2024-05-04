@@ -23,8 +23,6 @@ Submission
 
 #. Submission: individual submission via Gradescope
 
-#. Demo: required during the lab session (will use autograder; see below)
-
 #. Due time: 11:59pm, May 18, Saturday
 
 #. Files to submit: (please use exactly the same filename; case sensitive)
