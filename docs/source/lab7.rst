@@ -71,7 +71,7 @@ Submission
 
 #. Grading rubric:
 
- + \+ 10% Download the two new Gazebo worlds, namely `complex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/complex.world>`_ and `more_complex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/more_complex.world>`_ and place them inside the `worlds` folder of ``ee106s24``. Update the `lab5_turtlebot_world.launch` file to load the new worlds, for each experiment. 
+ + \+ 10% Download the two new Gazebo worlds, namely `mycomplex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/mycomplex.world>`_ and `my_more_complex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/my_more_complex.world>`_ and place them inside the `worlds` folder of ``ee106s24``. Update the `lab5_turtlebot_world.launch` file to load the new worlds, for each experiment. 
  + \+ 40% Fully integrate the FSM behavior in the Turtlebot2 motion planning behavior, based on the work of the ROS node of `Lab 5 <https://ucr-ee106.readthedocs.io/en/latest/lab5.html#submission>`_. 
  + \+ 25% Demonstrate the left wall-following behavior on the `complex_case.world`, provide comments about the robot behavior, and provide a panoramic video of the result (link).
  
