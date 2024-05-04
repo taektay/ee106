@@ -64,12 +64,10 @@ Submission
 #. Due time: 11:59pm, June 1, Sunday
 
 #. Files to submit for complex world :
+ 
  - lab7_report.pdf (Please provide a report describing all the following steps and results experienced in both experiments.)
  - complex_trajectory.csv
-
-#. Files to submit for more complex world :
-
- - more_complex_trajectory.csv
+ - more_complex_trajectory.csv (submit this only for more complex world task)
 
 #. Grading rubric:
 
