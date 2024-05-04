@@ -199,7 +199,7 @@ Please read carefully the provided code, and understand its functionality.
 
   .. code-block:: bash
 
-    python closed_loop.py
+    python3 closed_loop.py
 
   .. code-block:: bash
 
