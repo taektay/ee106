@@ -188,7 +188,7 @@ Please read carefully the provided code, and understand its functionality.
     touch closed_loop.py
     gedit closed_loop.py
 
-- Please copy and paste the following code, then save and close it.
+- Please copy and paste the following code, then save and close it. If you are working on turtlebot 2, you will need to change the topic name to ``/mobile_base/commands/velocity``.
 
   .. literalinclude:: ../../scripts/closed_loop.py
     :language: python
