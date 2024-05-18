@@ -51,18 +51,9 @@ class Turtlebot():
 
         # Define state transition matrix using NumPy
         self.state_transition_matrix = np.array([
-            # Wall fine
-            [
-                [[2, 1], [2, 2]],  # forward
-                [[0, 2], [2, 2]],  # left
-                [[1, 2], [2, 2]]   # right
-            ],
-            # Wall close
-            [
-                [[2, 1], [2, 2]],  # forward
-                [[0, 2], [2, 2]],  # left
-                [[1, 2], [2, 2]]   # right
-            ]
+            [[2, 1], [2, 2]],  # forward
+            [[0, 2], [2, 2]],  # left
+            [[1, 2], [2, 2]]   # right
         ])
 
         # Define state and condition encoding
@@ -105,7 +96,7 @@ class Turtlebot():
         SLIGHT_RIGHT = 1
         SLIGHT_LEFT = 2
         SHARP_RIGHT = 3
-        LARGER_LEFT = 4
+        SHARP_LEFT = 4
         MODERATE_RIGHT = 5
         MODERATE_LEFT = 6
 
