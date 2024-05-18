@@ -1,0 +1,16 @@
+<launch>
+  <!-- start Gazebo with an empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="world_name" value="$(find week7_fsm_wallfollowing)/worlds/mycomplex.world"/>
+  </include>
+  
+  <!-- spawn the robot -->
+  <include file="$(find kobuki_gazebo)/launch/includes/robot.launch.xml"/>
+
+  <!-- Set parameters for goal coordinates and CSV file name -->
+  <param name="goal_x" value="-1" />
+  <param name="goal_y" value="3" />
+  <param name="csv_file" value="complex_trajectory.csv" />
+</launch>
