@@ -61,7 +61,7 @@ Submission
 
 #. Group Submission (2-people)
 
-#. Due time: 11:59pm, June 4, Sunday
+#. Due time: 11:59pm, June 1, Saturday.
 
 #. Files to submit:
 
