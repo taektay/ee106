@@ -22,6 +22,8 @@ The cases that a robot might experience during its exploration in a maze, by fol
 Initially, as can be seen from the image, every case can be modeled by using two parameters, the `Left Side` and the `Right Side` occupancy. Thus, the robot depending on the values of these two parameters can decide on the next action-move, which can be moving `forward`, `left`, or `right`. These cases can be represented also as the following lookup matrix,
 
 
+- left_wall
+
 .. list-table:: 
     :align: center
     :widths: 50 50 50
@@ -55,6 +57,24 @@ A Finite-State Machine is a state automata that can formulate an algorithmic pro
  :align: center
 
 The left wall-following problem described above can be illustrated as a FSM, by using the robot actions as the states and the range measurements as the transition triggers. As the FSM is formed it can be integrated inside the motion planning ROS node, to perform left wall following. Notably, to achieve the robot's inclination towards the left wall while moving forward, an `extreme_close_to_wall` parameter is used, which can be enabled when the robot has the left wall less than `10cm` closer to its left side.
+
+Files
+--------
+
+Install source files from the github repo
+
+Get the main python executable `left_wall_following.py <https://github.com/UCR-Robotics/ee106/blob/Spring2024/scripts/left_wall_following.py>`_ and store it under src of `ee106s24`. Get the 2 launch files `launch_mycomplex.launch <https://github.com/UCR-Robotics/ee106/blob/Spring2024/launch/launch_mycomplex.launch>`_ and `launch_my_more_complex.launch <https://github.com/UCR-Robotics/ee106/blob/Spring2024/launch/launch_my_more_complex.launch>`_ and store them under your launch folder. Download the two new Gazebo worlds, namely `mycomplex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/mycomplex.world>`_ and `my_more_complex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/my_more_complex.world>`_ and place them inside the `worlds` folder of ``ee106s24``.
+
+Launch Simulation and Working
+--------
+
+To launch the gazebo simulation with the Turtlebot2 and the custom world, launch it by
+
+```
+roslaunch ee106s24 launch_mycomplex.launch
+```
+
+This will launch the Gazebo Simulation, loaded with the mycomplex.world and spawns the Turtlebot2 at origin. You would have to write code in `left_wall_following.py`, to make the robot finish the course. The launch file already has the parameters for the goal position and trajectory_name.csv file saved. 
 
 Submission
 --------

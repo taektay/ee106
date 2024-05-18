@@ -14,6 +14,7 @@ Contents
    lab4
    lab5
    lab6
+   lab7
    linux
    ros
 
@@ -29,3 +30,4 @@ News
 - 04/27/2024: `Lab 4 <lab4.html>`_ is up!
 - 05/03/2024: `Lab 5 <lab5.html>`_ is up!
 - 05/10/2024: `Lab 6 <lab6.html>`_ is up!
+- 05/17/2024: `Lab 7 <lab7.html>`_ is up!
