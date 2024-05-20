@@ -81,11 +81,12 @@ Submission
 
 #.  Group Submission (2-people) via Gradescope
 
-#. Due time: 11:59pm, June 1, Sunday
+#. Due time: 11:59pm, June 1, Saturday.
 
-#. Files to submit for complex world :
+#. Files to submit for the Assignment :
  
  - lab7_report.pdf (Please provide a report describing all the following steps and results experienced in both experiments.)
+ - left_wall_following.py 
  - complex_trajectory.csv
  - more_complex_trajectory.csv (submit this only for more complex world task)
 
