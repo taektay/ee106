@@ -92,7 +92,7 @@ Submission
 
 #. Grading rubric:
 
- + \+ 10% Download the two new Gazebo worlds, namely `mycomplex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/mycomplex.world>`_ and `my_more_complex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/my_more_complex.world>`_ and place them inside the `worlds` folder of ``ee106s24``. Update the launch file from lab 4 or lab 5 to load the new worlds, for each experiment. 
+ + \+ 10% Download the two new Gazebo worlds, namely `mycomplex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/mycomplex.world>`_ and `my_more_complex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/my_more_complex.world>`_ and place them inside the `worlds` folder of ``ee106s24``. Update the launch file to load the new worlds, for each experiment. 
  + \+ 40% Fully integrate the FSM behavior in the Turtlebot2 motion planning behavior.
  + \+ 25% Demonstrate the left wall-following behavior on the `mycomplex.world`, provide comments about the robot behavior. The End position for mycomplex world is (-1,3). Your robot needs to stop at the End position. The below picture is not the exact world picture. It is just for illustration.
  
