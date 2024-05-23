@@ -93,14 +93,11 @@ class Turtlebot():
 
         # Write code to encode current state and conditions
         # Get the new state from the state transition matrix
-
-
+        new_state_encoded = self.state_transition_matrix[left_condition_encoded, front_condition_encoded][0]
 
         # Decode the new state
+        self.state = self.state_decoding[new_state_encoded]
 
-
-
-    
     def publish_velocity(self):
         
         # Define named constants for directions
@@ -219,13 +216,9 @@ class Turtlebot():
             rospy.loginfo("The provided range is infinite!")
             return -1
             
-        # Write code to find values of theta, x & y in Robot's frame of reference
-        # Lidar is in Polar Co-ordinates
-        # Robot is in Cartesia Co-ordinates
-
-
-
-
+        theta = idx * angle_increment + angle_min
+        x = dist * np.cos(theta)
+        y = dist * np.sin(theta)
         return x, y
         
     def save_trajectory(self):
