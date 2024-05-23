@@ -54,12 +54,15 @@ class Turtlebot():
             #left Side: Free
             [    
                 # Front side: free  -> Left
-                [1],                
+                [1],        
+                # Front side: Occupied  -> Right
                 [2] 
             ],
             #left Side: Occupied
-            [    
+            [       
+                # Front side: free  -> Forward
                 [0],
+                # Front side: Occupied  -> Right
                 [2]
             ]
         ])
