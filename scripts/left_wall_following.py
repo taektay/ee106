@@ -51,9 +51,17 @@ class Turtlebot():
 
         # Define state transition matrix using NumPy
         self.state_transition_matrix = np.array([
-            [[2, 1], [2, 2]],  # forward
-            [[0, 2], [2, 2]],  # left
-            [[1, 2], [2, 2]]   # right
+            #left Side: Free
+            [    
+                # Front side: free  -> Left
+                [1],                
+                [2] 
+            ],
+            #left Side: Occupied
+            [    
+                [0],
+                [2]
+            ]
         ])
 
         # Define state and condition encoding
