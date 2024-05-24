@@ -63,6 +63,8 @@ Files
 
 Install source files from the github repo
 
+We have prepared a code code skeleton: `left_wall_following.py <https://github.com/UCR-Robotics/ee106/blob/Spring2024/scripts/left_wall_following.py>`_. This will help you on solving the complex world map. You can also have your own code. 
+
 Get the main python executable `left_wall_following.py <https://github.com/UCR-Robotics/ee106/blob/Spring2024/scripts/left_wall_following.py>`_ and store it under src of `ee106s24`. Get the 2 launch files `launch_mycomplex.launch <https://github.com/UCR-Robotics/ee106/blob/Spring2024/launch/launch_mycomplex.launch>`_ and `launch_my_more_complex.launch <https://github.com/UCR-Robotics/ee106/blob/Spring2024/launch/launch_my_more_complex.launch>`_ and store them under your launch folder. Download the two new Gazebo worlds, namely `mycomplex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/mycomplex.world>`_ and `my_more_complex.world <https://github.com/UCR-Robotics/ee106/blob/main/scripts/my_more_complex.world>`_ and place them inside the `worlds` folder of ``ee106s24``.
 
 Launch Simulation and Working
