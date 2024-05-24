@@ -80,6 +80,15 @@ This will launch the Gazebo Simulation, loaded with the mycomplex.world and spaw
 python3 left_wall_following.py 2> >(grep -v TF_REPEATED_DATA buffer_core)
 ```
 
+
+Debugging Tips
+--------
+You can go to the folder kobuki_desktop > kobuki_gazebo > launch > includes and find **robot.launch.xml** file and change the value after x, y in the args command: this will change the spawn location of the Kobuki base and might save you some time for debugging:
+
+```
+args="-x 0.0 -y 0.0 -z 1.5 -unpause -urdf -param robot_description -model $(arg robot_name)" 
+```
+
 Submission
 --------
 
