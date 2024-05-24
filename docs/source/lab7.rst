@@ -74,7 +74,10 @@ To launch the gazebo simulation with the Turtlebot2 and the custom world, launch
 roslaunch ee106s24 launch_mycomplex.launch
 ```
 
-This will launch the Gazebo Simulation, loaded with the mycomplex.world and spawns the Turtlebot2 at origin. You would have to write code in `left_wall_following.py`, to make the robot finish the course. The launch file already has the parameters for the goal position and trajectory_name.csv file saved. 
+This will launch the Gazebo Simulation, loaded with the mycomplex.world and spawns the Turtlebot2 at origin. You would have to write code in `left_wall_following.py`, to make the robot finish the course. The launch file already has the parameters for the goal position and trajectory_name.csv file saved.  To run your code without seeing the warning message from the Lidar, you can use the below command (When you debugging your code, **DO NOT** use the below command because you won't be able to see the error messages):
+``
+python3 left_wall_following.py 2> >(grep -v TF_REPEATED_DATA buffer_core)
+``
 
 Submission
 --------
