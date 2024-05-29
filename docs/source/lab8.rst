@@ -4,10 +4,10 @@ Lab 8: Go! Turtlebot!
 Overview
 --------
 
-In this lab, we will put everything together and apply what we have learned so far in ROS on the real Turtlebot3 Burger. 
-The task is to use Turtlebot3 and perform left-wall following in a real-world environment without colliding with obstacles or walls and finally kicking the ball at the endpoint of the map.
+In this lab, we will put everything together and apply what we have learned so far in ROS on the real Turtlebot. 
+The task is to use Turtlebot and perform left-wall following in a real-world environment without colliding with obstacles or walls.
 
-The implemented ROS node of `Lab 7 <https://ucr-ee106.readthedocs.io/en/latest/lab7.html#>`_ will be used with proper modifications, to run onboard the Turtlebot3 to complete the navigation scenario. In the end, a demonstration of the complete wall-following behavior will be performed for the system's evaluation. Each team will have one Turtlebot3 to work with and do the demonstration.
+The implemented ROS node of `Lab 7 <https://ucr-ee106.readthedocs.io/en/latest/lab7.html#>`_ will be used with proper modifications, to run onboard the Turtlebot to complete the navigation scenario. In the end, a demonstration of the complete wall-following behavior will be performed for the system's evaluation. Each team will have one Turtlebot to work with and do the demonstration.
 
 **A successful demo on Gazebo is required before any 
 implementation on the real robot.**
@@ -19,23 +19,35 @@ As we saw in the first labs, one of the ways to connect to the robot is via Secu
 
   .. code-block:: bash
 
-    ssh pi@192.168.0.X
+    ssh ee106_nucx@192.168.0.X
 
-where `X` is the final digits of the robot's IP. Since you are connected to the remote shell of the robot, you can navigate in the `~/catkin_ws` folder of its ROS workspace. 
+where `nucx` stands for the nuc number, as mentioned on the robot and `X` is the final digits of the robot's IP. Since you are connected to the remote shell of the robot, you can navigate in the `~/catkin_ws` folder of its ROS workspace. 
 
-First we need to enable the robot `bringup` ROS node. Thus, execute in the above terminal, 
+First we need to enable the robot  ROS node. Thus, execute in the above terminal, 
 
   .. code-block:: bash
 
-    roslaunch turtlebot3_bringup turtlebot3_robot.launch
+    roslaunch kobuki_node robot_with_tf.launch
+
+In another terminal run
+
+  .. code-block:: bash
+
+    sudo chmod 666 /dev/ttyUSB1
+
+then in the same terminal run
+
+  .. code-block:: bash
+
+    roslaunch rplidar_ros rplidar_a2m8.launch
 
 To execute your locally saved ROS node, you need first to secure copy (`scp`) it in the robot's directory and then execute it. So, open a terminal in your VMware and execute,
 
   .. code-block:: bash
 
-    scp `path_to_your_script` pi@192.168.0.X:/home/pi/catkin_ws/src/ee106s24/scripts/left_wall_following.py
+    scp `path_to_your_script` ee106_nucx@192.168.0.X:/home/ee106_nucx/turtlebot2_ws/src/ee106s24/src/left_wall_following.py
 
-Then, on the same terminal follow the above instructions of performing SSH, and obtain access on the TurtleBot3 by a new terminal.
+Then, on the same terminal follow the above instructions of performing SSH, and obtain access on the TurtleBot by a new terminal.
 
 As the file is copied on the Burger, you can navigate to the `ee106s24` ROS package, and provide permission on the copied ROS node with the command `chmod +x left_wall_following.py`. To execute your ROS node on the Turtlebot3, perform the following command on the SSH terminal,
 
@@ -99,8 +111,8 @@ The image below showcases the requirements of this lab, which is the considered 
 #. Grading rubric:
       -  \+10% Communicate successfully with the real robot
       -  \+40% Demo the task on the real robot
-      -  \+10% Avoid collision with obstacles.
-      -  \+10% Reach the goal area and kick the balls.
+      -  \+10% Avoid collision with wall.
+      -  \+10% Do a lap around the map.
       -  \+30% Lab report with included ROS Node code and remarks and lessons learned from the lab.
 
 Lab Rules
