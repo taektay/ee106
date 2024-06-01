@@ -49,7 +49,7 @@ To execute your locally saved ROS node, you need first to secure copy (`scp`) it
 
 Then, on the same terminal follow the above instructions of performing SSH, and obtain access on the TurtleBot by a new terminal.
 
-As the file is copied on the Burger, you can navigate to the `ee106s24` ROS package, and provide permission on the copied ROS node with the command `chmod +x left_wall_following.py`. To execute your ROS node on the Turtlebot3, perform the following command on the SSH terminal,
+As the file is copied on the Robot, you can navigate to the `ee106s24` ROS package, and provide permission on the copied ROS node with the command `chmod +x left_wall_following.py`. To execute your ROS node on the Turtlebot3, perform the following command on the SSH terminal,
 
   .. code-block:: bash
 
@@ -64,15 +64,7 @@ To interrupt the behavior, you can cancel the execution of the ROS node in the s
 ..     roslaunch X keyboard_teleop.launch
 
 
-ROS Node template for the Left Wall-Following
-----------
-
-.. literalinclude:: ../scripts/left_wall_following.py
-   :language: python
-
-The above code can be used as a template for the Lab 7 and the final Lab. 
-
-ROS Bag Recording and Data Logging
+ROS Bag Recording and Data Logging (Optional)
 ----------
 
 One of the ways to record the data being produced during a ROS scenario you can use the ROS bag command. Specifically, this command enables the ROS data logging feature to capture information that is being published via the ROS Topics and save it locally. The information is saved in ROS Bag file format (`.bag`), which can be accessed at a later time and be replayed back to replay the captured data of the scenario. 
@@ -98,7 +90,7 @@ Submission
 
 #. In the lab report include explanations and screenshots from the robot's navigation scenario.
 
-#. Due time: 06/13/2024
+#. Due time: 06/10/2024
 
 #. Grading rubric:
       -  \+10% Communicate successfully with the real robot
